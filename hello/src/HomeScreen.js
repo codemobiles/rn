@@ -17,13 +17,7 @@ const HomeScreen = () => {
   const [account, setAccount] = useState({username: '', password: ''});
 
   return (
-    <View
-      style={{
-        flexDirection: 'column',
-        flex: 1,
-        justifyContent: 'flex-start',
-        alignItems: 'stretch',
-      }}>
+    <ImageBackground source={require('./assets/img/bg.png')} style={{flex: 1}}>
       <Icon name="user" size={30} />
 
       <Image
@@ -46,7 +40,7 @@ const HomeScreen = () => {
       />
       <Button title="RUN" />
       <Text>{JSON.stringify(account)}</Text>
-    </View>
+    </ImageBackground>
   );
 };
 
