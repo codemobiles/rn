@@ -2,8 +2,7 @@ import React, {useState} from 'react';
 import {View, Text, Button, TextInput} from 'react-native';
 
 const App = () => {
-
-  const [username, setUsername] = useState("Lek")
+  const [username, setUsername] = useState('Lek');
 
   return (
     <View
@@ -13,9 +12,9 @@ const App = () => {
         justifyContent: 'flex-start',
         alignItems: 'stretch',
       }}>
-      <TextInput placeholder="Name" onChangeText={text=>setUsername(text)}/>
+      <TextInput placeholder="Name" onChangeText={text => setUsername(text)} />
       <Button title="RUN" />
-    <Text>{username}</Text>
+      <Text>{username}</Text>
     </View>
   );
 };
