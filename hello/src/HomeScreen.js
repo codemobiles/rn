@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import {View, Text, Button, TextInput, Image} from 'react-native';
+import Icon from 'react-native-vector-icons/FontAwesome';
 
 const HomeScreen = () => {
   const [account, setAccount] = useState({username: '', password: ''});
@@ -12,6 +13,7 @@ const HomeScreen = () => {
         justifyContent: 'flex-start',
         alignItems: 'stretch',
       }}>
+      <Icon name="user" size={30} />
       <Image
         source={require('./assets/img/avatar.png')}
         style={{height: 100, width: 100}}
