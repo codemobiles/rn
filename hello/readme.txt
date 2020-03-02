@@ -55,3 +55,6 @@ npm i express formidable fs-extra body-parser
 5. react-native link
 6. 
 npm start -- --reset-cache
+
+
+adb shell input keyevent 82

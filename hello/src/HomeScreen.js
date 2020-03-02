@@ -22,7 +22,6 @@ const HomeScreen = () => {
     <ImageBackground source={require('./assets/img/bg.png')} style={{flex: 1}}>
       <View
         style={{
-          height: 300,
           backgroundColor: '#FFF3',
           marginTop: 32,
           marginLeft: 32,
@@ -42,14 +41,18 @@ const HomeScreen = () => {
             placeholder="Username"
           />
         </View>
-      </View>
 
-      <TextInput
-        placeholder="Password"
-        onChangeText={text => setAccount({...account, password: text})}
-      />
-      <Button title="RUN" />
-      <Text>{JSON.stringify(account)}</Text>
+        {/* Password section */}
+        <View style={{flexDirection: 'row', alignItems: 'center'}}>
+          <Icon name="lock" size={35} color="#000A" />
+          <Input
+            keyboardType="email-address"
+            onChangeText={text => setAccount({...account, password: text})}
+            style={{marginLeft: 16, flex: 1}}
+            placeholder="Password"
+          />
+        </View>
+      </View>
     </ImageBackground>
   );
 };
