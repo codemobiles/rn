@@ -13,7 +13,7 @@ const App = () => {
         justifyContent: 'flex-start',
         alignItems: 'stretch',
       }}>
-      <TextInput placeholder="Name" />
+      <TextInput placeholder="Name" onChangeText={text=>setUsername(text)}/>
       <Button title="RUN" />
     <Text>{username}</Text>
     </View>
