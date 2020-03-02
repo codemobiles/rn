@@ -47,7 +47,7 @@ const HomeScreen = () => {
         <View style={{flexDirection: 'row', alignItems: 'center'}}>
           <Icon name="lock" size={35} color="#000A" />
           <Input
-            keyboardType="email-address"
+            secureTextEntry
             onChangeText={text => setAccount({...account, password: text})}
             style={{marginLeft: 16, flex: 1}}
             placeholder="Password"
@@ -59,9 +59,15 @@ const HomeScreen = () => {
         </View>
 
         <View style={{height: 8}} />
-        <ElButton style={{marginTop: 8}} title="Register" />
+        <ElButton type="outline" style={{marginTop: 8}} title="Register" />
         <View style={{height: 16}} />
       </View>
+
+      <Image
+        source={require('./assets/img/header_react_native.png')}
+        style={{height: 80, width: '100%', marginTop: 16}}
+        resizeMode="contain"
+      />
     </ImageBackground>
   );
 };
