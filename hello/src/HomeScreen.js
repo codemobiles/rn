@@ -1,6 +1,17 @@
-import React, {useState} from 'react';
-import {View, Text, Button, TextInput, Image} from 'react-native';
+import React, {Component} from 'react';
+import {
+  Text,
+  View,
+  TextInput,
+  TouchableOpacity,
+  Image,
+  ImageBackground,
+  Platform,
+} from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
+// import AsyncStorage from '@react-native-community/async-storage';
+
+import {Button} from 'react-native-elements';
 
 const HomeScreen = () => {
   const [account, setAccount] = useState({username: '', password: ''});
