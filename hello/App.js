@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import {View, Text, Button, TextInput} from 'react-native';
 
 const App = () => {
-  const [username, setUsername] = useState('Lek');
+  const [account, setAccount] = useState({username: '', password: ''});
 
   return (
     <View
@@ -12,9 +12,16 @@ const App = () => {
         justifyContent: 'flex-start',
         alignItems: 'stretch',
       }}>
-      <TextInput placeholder="Name" onChangeText={text => setUsername(text)} />
+      <TextInput
+        placeholder="Username"
+        onChangeText={text => setUsername(text)}
+      />
+      <TextInput
+        placeholder="Password"
+        onChangeText={text => setUsername(text)}
+      />
       <Button title="RUN" />
-      <Text>{username}</Text>
+      <Text>{JSON.stringify(account)}</Text>
     </View>
   );
 };
