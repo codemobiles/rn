@@ -18,18 +18,10 @@ const HomeScreen = () => {
 
   return (
     <ImageBackground source={require('./assets/img/bg.png')} style={{flex: 1}}>
-      <Icon name="user" size={30} />
+      <View
+        style={{height: 300, width: '100%', backgroundColor: '#FFF'}}></View>
 
-      <Image
-        source={require('./assets/img/avatar.png')}
-        style={{height: 100, width: 100}}
-      />
-
-      <Image
-        source={{uri: 'http://www.codemobiles.com/biz/img/banner_home.gif'}}
-        style={{height: 100, width: 100}}
-      />
-
+        
       <TextInput
         placeholder="Username"
         onChangeText={text => setAccount({...account, username: text})}
