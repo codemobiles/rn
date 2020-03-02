@@ -1,7 +1,10 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {View, Text, Button, TextInput} from 'react-native';
 
 const App = () => {
+
+  const [username, setUsername] = useState("Lek")
+
   return (
     <View
       style={{
@@ -12,7 +15,7 @@ const App = () => {
       }}>
       <TextInput placeholder="Name" />
       <Button title="RUN" />
-      <Text>xxx</Text>
+    <Text>{username}</Text>
     </View>
   );
 };
