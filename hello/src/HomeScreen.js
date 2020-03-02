@@ -9,6 +9,8 @@ import {
   Platform,
 } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
+import {Input} from 'react-native-elements';
+
 // import AsyncStorage from '@react-native-community/async-storage';
 
 import {Button} from 'react-native-elements';
@@ -25,12 +27,15 @@ const HomeScreen = () => {
           marginTop: 32,
           marginLeft: 32,
           marginRight: 32,
-        }}></View>
+          borderRadius: 10,
+        }}>
+        {/* Username section */}
+        <View style={{flexDirection: 'row'}}>
+          <Icon name="user" size={35} color="#000A" />
+          <Input placeholder="BASIC INPUT" />
+        </View>
+      </View>
 
-      <TextInput
-        placeholder="Username"
-        onChangeText={text => setAccount({...account, username: text})}
-      />
       <TextInput
         placeholder="Password"
         onChangeText={text => setAccount({...account, password: text})}
