@@ -36,9 +36,10 @@ const HomeScreen = () => {
         <View style={{flexDirection: 'row', alignItems: 'center'}}>
           <Icon name="user" size={35} color="#000A" />
           <Input
+            keyboardType="email-address"
             onChangeText={text => setAccount({...account, username: text})}
             style={{marginLeft: 16, flex: 1}}
-            placeholder="BASIC INPUT"
+            placeholder="Username"
           />
         </View>
       </View>
