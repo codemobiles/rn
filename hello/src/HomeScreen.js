@@ -7,13 +7,14 @@ import {
   Image,
   ImageBackground,
   Platform,
+  Button,
 } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import {Input} from 'react-native-elements';
 
 // import AsyncStorage from '@react-native-community/async-storage';
 
-import {Button} from 'react-native-elements';
+import {Button as ElButton} from 'react-native-elements';
 
 const HomeScreen = () => {
   const [account, setAccount] = useState({username: '', password: ''});
@@ -52,6 +53,14 @@ const HomeScreen = () => {
             placeholder="Password"
           />
         </View>
+
+        <View style={{marginTop: 32}}>
+          <Button title="Login" />
+        </View>
+
+        <View style={{height: 8}} />
+        <ElButton style={{marginTop: 8}} title="Register" />
+        <View style={{height: 16}} />
       </View>
     </ImageBackground>
   );
