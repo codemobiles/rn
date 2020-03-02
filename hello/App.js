@@ -1,7 +1,10 @@
 import React from 'react';
-import {View, Text, Button} from 'react-native';
+import {View, Text, Button, TextInput} from 'react-native';
 
 const App = () => {
+
+
+  
   return (
     <View
       style={{
@@ -11,6 +14,8 @@ const App = () => {
         justifyContent: 'space-evenly',
         alignItems: 'stretch',
       }}>
+
+      <TextInput placeholder="Name"/>
       <Button title="RUN" onPress={()=>alert("Hey")} />
       <Text
         style={{flex: 1, color: '#FFF', fontSize: 10, backgroundColor: '#000'}}>
