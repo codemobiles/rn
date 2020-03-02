@@ -58,3 +58,5 @@ npm start -- --reset-cache
 
 
 adb shell input keyevent 82
+
+git reset --hard
