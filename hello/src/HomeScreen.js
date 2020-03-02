@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, {useState} from 'react';
 import {
   Text,
   View,
@@ -25,6 +25,7 @@ const HomeScreen = () => {
         alignItems: 'stretch',
       }}>
       <Icon name="user" size={30} />
+
       <Image
         source={require('./assets/img/avatar.png')}
         style={{height: 100, width: 100}}
