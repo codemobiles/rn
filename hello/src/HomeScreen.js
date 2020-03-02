@@ -28,11 +28,18 @@ const HomeScreen = () => {
           marginLeft: 32,
           marginRight: 32,
           borderRadius: 10,
+          paddingLeft: 32,
+          paddingRight: 32,
+          paddingTop: 32,
         }}>
         {/* Username section */}
-        <View style={{flexDirection: 'row'}}>
+        <View style={{flexDirection: 'row', alignItems: 'center'}}>
           <Icon name="user" size={35} color="#000A" />
-          <Input placeholder="BASIC INPUT" />
+          <Input
+            onChangeText={text => setAccount({...account, username: text})}
+            style={{marginLeft: 16, flex: 1}}
+            placeholder="BASIC INPUT"
+          />
         </View>
       </View>
 
