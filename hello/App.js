@@ -14,11 +14,11 @@ const App = () => {
       }}>
       <TextInput
         placeholder="Username"
-        onChangeText={text => setUsername(text)}
+        onChangeText={text => setAccount({...account, username: text})}
       />
       <TextInput
         placeholder="Password"
-        onChangeText={text => setUsername(text)}
+        onChangeText={text => setAccount({...account, password: text})}
       />
       <Button title="RUN" />
       <Text>{JSON.stringify(account)}</Text>
