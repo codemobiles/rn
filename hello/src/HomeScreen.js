@@ -19,9 +19,8 @@ const HomeScreen = () => {
   return (
     <ImageBackground source={require('./assets/img/bg.png')} style={{flex: 1}}>
       <View
-        style={{height: 300, width: '100%', backgroundColor: '#FFF'}}></View>
+        style={{height: 300, width: '100%', backgroundColor: '#FFF3'}}></View>
 
-        
       <TextInput
         placeholder="Username"
         onChangeText={text => setAccount({...account, username: text})}
