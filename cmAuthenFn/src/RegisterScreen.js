@@ -16,6 +16,20 @@ import {Input, Divider, Badge} from 'react-native-elements';
 
 import {Button as ElButton} from 'react-native-elements';
 
+// Sub component
+CMEntry = () => {
+  return (
+    <View style={{flexDirection: 'row', alignItems: 'center'}}>
+    <Icon name="user" size={35} type="ionicon" color="#517fa4" reverse />
+    <Input
+      keyboardType="email-address"      
+      style={{marginLeft: 16, flex: 1}}
+      placeholder="Username"
+    />
+  </View>
+  );
+};
+
 const HomeScreen = () => {
   const [account, setAccount] = useState({username: '', password: ''});
 
@@ -33,15 +47,8 @@ const HomeScreen = () => {
           paddingTop: 32,
         }}>
         {/* Username section */}
-        <View style={{flexDirection: 'row', alignItems: 'center'}}>
-          <Icon name="user" size={35} type="ionicon" color="#517fa4" reverse />
-          <Input
-            keyboardType="email-address"
-            onChangeText={text => setAccount({...account, username: text})}
-            style={{marginLeft: 16, flex: 1}}
-            placeholder="Username"
-          />
-        </View>
+        <CMEntry />
+       
 
         {/* Password section */}
         <View style={{flexDirection: 'row', alignItems: 'center'}}>
