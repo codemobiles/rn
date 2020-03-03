@@ -23,8 +23,8 @@ const renderRow = ({item, index}) => (
       />
       {/* Title and subtitle */}
       <View style={{flexDirection: 'column', flex: 1}}>
-        <Text style={{fontWeight: 'bold'}}>Title</Text>
-        <Text>Subtitle</Text>
+        <Text style={{fontWeight: 'bold'}}>{item.title}</Text>
+        <Text>{item.subtitle}</Text>
       </View>
     </View>
 
@@ -41,16 +41,18 @@ const renderRow = ({item, index}) => (
 );
 
 const JSONFeedScreen = () => {
-  useEffect(() => {
+  const [dataArray, setDataArray] = useState(null);
+
+  useEffect(async () => {
     // code called when component is updated
     console.log('JSON Created');
-    axios
-      .get(
-        'http://codemobiles.com/adhoc/youtubes/index_new.php?username=admin&password=password&type=foods',
-      )
-      .then(result => {
-        console.log(JSON.stringify(result.data));
-      });
+    let result = await axios.get(
+      'http://codemobiles.com/adhoc/youtubes/index_new.php?username=admin&password=password&type=foods',
+    );
+
+    // Destructuring
+    const {youtubes} = result.data;
+    setDataArray(youtubes);
   }, []);
 
   return (
@@ -58,9 +60,9 @@ const JSONFeedScreen = () => {
       style={styles.container}
       source={require('./assets/img/bg.png')}>
       <FlatList
-        data={['Angular', 'React', 'Vue']}
+        data={dataArray ? dataArray : []}
         renderItem={renderRow}
-        keyExtractor={item => item}
+        keyExtractor={item => item.id}
       />
     </ImageBackground>
   );
