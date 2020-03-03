@@ -28,6 +28,7 @@ CMEntry = props => {
         reverse
       />
       <Input
+        secureTextEntry={props.isPassword}
         keyboardType="email-address"
         style={{marginLeft: 16, flex: 1}}
         placeholder={props.hint}
@@ -56,7 +57,7 @@ const HomeScreen = () => {
         <CMEntry hint="Username" icon="user" />
 
         {/* Password section */}
-        <CMEntry hint="Password" icon="lock" />
+        <CMEntry hint="Password" icon="lock" isPassword />
 
         <View style={{marginTop: 32}}>
           <Button title="Register" />
