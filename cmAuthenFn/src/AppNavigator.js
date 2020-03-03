@@ -12,6 +12,7 @@ import CameraScreen from './CameraScreen';
 import YoutubeScreen from './YoutubeScreen';
 
 const jsonTabOp = {
+  tabBarOptions: {activeTintColor: 'red'},
   tabBarLabel: 'Feed',
   tabBarIcon: ({focused}) => (
     <Image
