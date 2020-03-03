@@ -17,16 +17,22 @@ import {Input, Divider, Badge} from 'react-native-elements';
 import {Button as ElButton} from 'react-native-elements';
 
 // Sub component
-CMEntry = () => {
+CMEntry = props => {
   return (
     <View style={{flexDirection: 'row', alignItems: 'center'}}>
-    <Icon name="user" size={35} type="ionicon" color="#517fa4" reverse />
-    <Input
-      keyboardType="email-address"      
-      style={{marginLeft: 16, flex: 1}}
-      placeholder="Username"
-    />
-  </View>
+      <Icon
+        name={props.icon}
+        size={35}
+        type="ionicon"
+        color="#517fa4"
+        reverse
+      />
+      <Input
+        keyboardType="email-address"
+        style={{marginLeft: 16, flex: 1}}
+        placeholder={props.hint}
+      />
+    </View>
   );
 };
 
@@ -47,19 +53,10 @@ const HomeScreen = () => {
           paddingTop: 32,
         }}>
         {/* Username section */}
-        <CMEntry />
-       
+        <CMEntry hint="Username" icon="user" />
 
         {/* Password section */}
-        <View style={{flexDirection: 'row', alignItems: 'center'}}>
-          <Icon name="lock" size={35} type="ionicon" color="#517fa4" />
-          <Input
-            secureTextEntry
-            onChangeText={text => setAccount({...account, password: text})}
-            style={{marginLeft: 16, flex: 1}}
-            placeholder="Password"
-          />
-        </View>
+        <CMEntry hint="Password" icon="lock" />
 
         <View style={{marginTop: 32}}>
           <Button title="Register" />
