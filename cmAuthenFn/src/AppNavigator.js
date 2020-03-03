@@ -8,6 +8,8 @@ import {createBottomTabNavigator} from 'react-navigation-tabs';
 import HomeScreen from './HomeScreen';
 import RegisterScreen from './RegisterScreen';
 import JSONFeedScreen from './JSONFeedScreen';
+import CameraScreen from "./CameraScreen";
+import YoutubeScreen from "./YoutubeScreen";
 
 const jsonTabOp = {
   tabBarLabel: 'Feed',
