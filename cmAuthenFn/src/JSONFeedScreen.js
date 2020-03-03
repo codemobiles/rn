@@ -17,10 +17,7 @@ const renderRow = ({item, index}) => (
     {/* Top section - Row */}
     <View style={styles.listCardView}>
       {/* Avatar */}
-      <Image
-        source={require('./assets/img/cmdev_icon.png')}
-        style={styles.listAvatar}
-      />
+      <Image source={{uri: item.avatar_image}} style={styles.listAvatar} />
       {/* Title and subtitle */}
       <View style={{flexDirection: 'column', flex: 1}}>
         <Text style={{fontWeight: 'bold'}}>{item.title}</Text>
@@ -32,8 +29,7 @@ const renderRow = ({item, index}) => (
     <Image
       resizeMode="cover"
       source={{
-        uri:
-          'http://www.codemobiles.com/biz/training/images/react_banner.jpg?3',
+        uri: item.youtube_image,
       }}
       style={styles.listYoutbeImage}
     />
