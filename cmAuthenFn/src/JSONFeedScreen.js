@@ -15,7 +15,15 @@ import {ifIphoneX} from 'react-native-iphone-x-helper';
 const JSONFeedScreen = () => {
   return (
     <ImageBackground style={{flex: 1}} source={require('./assets/img/bg.png')}>
-      <Text>JSON</Text>
+      <FlatList
+        data={['Angular', 'React', 'Vue']}
+        renderItem={({index, item}) => (
+          <Text>
+            {index}. {item}
+          </Text>
+        )}
+        keyExtractor={item => item}
+      />
     </ImageBackground>
   );
 };
