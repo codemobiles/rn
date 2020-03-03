@@ -14,7 +14,7 @@ import {ifIphoneX} from 'react-native-iphone-x-helper';
 
 const renderRow = ({item, index}) => (
   <TouchableOpacity onPress={() => alert('1234')} style={styles.listCard}>
-    {/* Top section */}
+    {/* Top section - Row */}
     <View style={styles.listCardView}>
       {/* Avatar */}
       <Image
@@ -27,6 +27,12 @@ const renderRow = ({item, index}) => (
         <Text>Subtitle</Text>
       </View>
     </View>
+
+    {/* Bottom section */}
+    <Image
+      source={require('./assets/img/loadingimg.png')}
+      style={styles.listYoutbeImage}
+    />
   </TouchableOpacity>
 );
 
