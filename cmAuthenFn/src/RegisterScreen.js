@@ -96,7 +96,7 @@ const RegisterScreen = props => {
   );
 };
 
-export default HomeScreen;
+export default RegisterScreen;
 
 RegisterScreen.navigationOptions = ({navigation}) => {
   return {
