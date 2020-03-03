@@ -12,8 +12,8 @@ import axios from 'axios';
 import AsyncStorage from '@react-native-community/async-storage';
 import {ifIphoneX} from 'react-native-iphone-x-helper';
 
-const renderRow = ({item, index}) => (
-  <TouchableOpacity onPress={() => alert('1234')} style={styles.listCard}>
+const renderRow = ({item, index, navigation}) => (
+  <TouchableOpacity onPress={() => navigation.navigate('youtube')}>
     {/* Top section - Row */}
     <View style={styles.listCardView}>
       {/* Avatar */}
@@ -36,7 +36,7 @@ const renderRow = ({item, index}) => (
   </TouchableOpacity>
 );
 
-const JSONFeedScreen = () => {
+const JSONFeedScreen = props => {
   const [dataArray, setDataArray] = useState(null);
   const [isFetching, setIsFetching] = useState(false);
 
@@ -73,7 +73,9 @@ const JSONFeedScreen = () => {
         refreshing={isFetching}
         onRefresh={() => loadData()}
         data={dataArray ? dataArray : []}
-        renderItem={renderRow}
+        renderItem={({item, index}) =>
+          renderRow({item, index, navigation: props.navigation})
+        }
         keyExtractor={item => item.id}
       />
     </ImageBackground>

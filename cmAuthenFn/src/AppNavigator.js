@@ -71,6 +71,7 @@ const TabScreens = createBottomTabNavigator(
 const AppStack = createStackNavigator(
   {
     tab: {screen: TabScreens},
+    youtube: {screen: YoutubeScreen},
   },
   {
     initialRouteName: 'tab',
