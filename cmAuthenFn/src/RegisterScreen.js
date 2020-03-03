@@ -38,7 +38,7 @@ CMEntry = props => {
   );
 };
 
-const HomeScreen = props => {
+const RegisterScreen = props => {
   const [account, setAccount] = useState({username: '', password: ''});
 
   return (
@@ -97,3 +97,15 @@ const HomeScreen = props => {
 };
 
 export default HomeScreen;
+
+RegisterScreen.navigationOptions = ({navigation}) => {
+  return {
+    title: 'Register',
+    headerStyle: {
+      backgroundColor: '#119CED',
+    },
+    headerTintColor: '#FFFFFF',
+    headerTitleStyle: {color: '#fff'},
+    headerBackTitle: ' ',
+  };
+};
