@@ -12,16 +12,20 @@ import axios from 'axios';
 import AsyncStorage from '@react-native-community/async-storage';
 import {ifIphoneX} from 'react-native-iphone-x-helper';
 
+const renderRow = ({item, index}) => (
+  <Text>
+    {index + 1}. {item}
+  </Text>
+);
+
 const JSONFeedScreen = () => {
   return (
-    <ImageBackground style={{flex: 1}} source={require('./assets/img/bg.png')}>
+    <ImageBackground
+      style={styles.container}
+      source={require('./assets/img/bg.png')}>
       <FlatList
         data={['Angular', 'React', 'Vue']}
-        renderItem={({index, item}) => (
-          <Text>
-            {index}. {item}
-          </Text>
-        )}
+        renderItem={renderRow}
         keyExtractor={item => item}
       />
     </ImageBackground>
@@ -29,3 +33,9 @@ const JSONFeedScreen = () => {
 };
 
 export default JSONFeedScreen;
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+  },
+});
