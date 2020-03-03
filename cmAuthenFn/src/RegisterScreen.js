@@ -28,8 +28,9 @@ CMEntry = props => {
         reverse
       />
       <Input
+        onChangeText={props.onValueChanged}
         secureTextEntry={props.isPassword}
-        keyboardType={props.isPassword ? null : "email-address"}
+        keyboardType={props.isPassword ? null : 'email-address'}
         style={{marginLeft: 16, flex: 1}}
         placeholder={props.hint}
       />
@@ -54,13 +55,25 @@ const HomeScreen = () => {
           paddingTop: 32,
         }}>
         {/* Username section */}
-        <CMEntry hint="Username" icon="user" />
+        <CMEntry
+          hint="Username"
+          icon="user"
+          onValueChanged={text => setAccount({...account, username: text})}
+        />
 
         {/* Password section */}
-        <CMEntry hint="Password" icon="lock" isPassword />
+        <CMEntry
+          hint="Password"
+          icon="lock"
+          onValueChanged={text => setAccount({...account, password: text})}
+          isPassword
+        />
 
         <View style={{marginTop: 32}}>
-          <Button title="Register" />
+          <Button
+            title="Register"
+            onPress={() => alert(JSON.stringify(account))}
+          />
         </View>
 
         <ElButton
