@@ -38,8 +38,10 @@ const renderRow = ({item, index}) => (
 
 const JSONFeedScreen = () => {
   const [dataArray, setDataArray] = useState(null);
+  const [isFetching, setIsFetching] = useState(false);
 
   const loadData = async () => {
+    setIsFetching(true);
     console.log('JSON Created');
 
     let url = 'http://codemobiles.com/adhoc/youtubes/index_new.php';
@@ -52,6 +54,10 @@ const JSONFeedScreen = () => {
     // Destructuring
     const {youtubes} = result.data;
     setDataArray(youtubes);
+
+    setTimeout(() => {
+      setIsFetching(false);
+    }, 1000);
   };
 
   useEffect(async () => {
@@ -64,7 +70,7 @@ const JSONFeedScreen = () => {
       style={styles.container}
       source={require('./assets/img/bg.png')}>
       <FlatList
-        refreshing={true}
+        refreshing={isFetching}
         onRefresh={() => loadData()}
         data={dataArray ? dataArray : []}
         renderItem={renderRow}
