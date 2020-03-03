@@ -19,12 +19,18 @@ react-native run-android --port=1234
 
 
 #react-native npm    
-    yarn add react-native-elements react-native-vector-icons react-navigation react-native-gesture-handler react-native-reanimated react-navigation-stack react-navigation-tabs @react-native-community/async-storage axios react-native-iphone-x-helper
+    
+    ชุดที่หนึ่ง
+    yarn add react-native-elements react-native-vector-icons react-navigation react-native-reanimated react-native-gesture-handler react-native-screens react-native-safe-area-context @react-native-community/masked-view react-navigation-stack react-navigation-tabs @react-native-community/async-storage axios react-native-iphone-x-helper    
     react-native link react-native-vector-icons
     react-native link react-native-gesture-handler
     react-native link react-native-reanimated
+    react-native link react-native-screens
+    react-native link react-native-safe-area-context
+    react-native link @react-native-community/masked-view      
     react-native link @react-native-community/async-storage    
 
+    ยังเพิ่งลงชุดนี้
     npm i react-native-youtube react-native-image-crop-picker 
     react-native link react-native-youtube
     react-native link react-native-image-crop-picker 
