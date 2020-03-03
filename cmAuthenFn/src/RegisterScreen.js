@@ -38,7 +38,7 @@ CMEntry = props => {
   );
 };
 
-const HomeScreen = () => {
+const HomeScreen = props => {
   const [account, setAccount] = useState({username: '', password: ''});
 
   return (
@@ -80,6 +80,7 @@ const HomeScreen = () => {
           type="outline"
           style={{marginTop: 8}}
           title="Cancel"
+          onPress={() => props.navigation.goBack()}
           titleStyle={{color: '#FFF'}}
           containerStyle={{marginTop: 10}}
         />
