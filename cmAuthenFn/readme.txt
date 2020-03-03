@@ -59,3 +59,34 @@ npm start -- --reset-cache
 adb shell input keyevent 82
 
 git reset --hard
+
+
+
+
+Day 1#
+- What is React? - UI Library
+- ReactJS (Web) and ReactNative (Mobile)
+- Basic UI [View, Text, TextInput, Image, Button, ImageBackground]
+- 3rd UI (ReactNativeElements) [Icon, Input]
+- React Component
+  - Root Component : App.js <--called by (index.js)
+- React Project File Structure
+  - node_modules folder 
+  - android (native android code)
+  - ios (native ios code)
+  - index.js
+  - App.js
+  - src folder
+
+- (sudo) npm i -g react-native
+- react-native init <project-name>
+- react-native run-android / run-ios
+- Add more libraries
+  - element and icon
+  - npm i lib1 lib2
+  - react-native link lib1
+
+- Create state by using React Hooks setState
+- Event Listener [onPress, onTextChange]
+- style={{backgroundColor: "#F00"}}
+- Metro Bundler
