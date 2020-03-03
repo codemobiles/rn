@@ -39,8 +39,7 @@ const renderRow = ({item, index}) => (
 const JSONFeedScreen = () => {
   const [dataArray, setDataArray] = useState(null);
 
-  useEffect(async () => {
-    // code called when component is updated
+  const loadData = async () => {
     console.log('JSON Created');
 
     let url = 'http://codemobiles.com/adhoc/youtubes/index_new.php';
@@ -48,13 +47,16 @@ const JSONFeedScreen = () => {
     let regPassword = 'password'; // await AsyncStorage.getItem('password')
     let data = `username=${regUsername}&password=${regPassword}&type=foods`;
 
-    let result = await axios.get(
-      'http://codemobiles.com/adhoc/youtubes/index_new.php?username=admin&password=password&type=foods',
-    );
+    let result = await axios.post(url, data);
 
     // Destructuring
     const {youtubes} = result.data;
     setDataArray(youtubes);
+  };
+
+  useEffect(async () => {
+    // code called when component is updated
+    await loadData();
   }, []);
 
   return (
@@ -62,6 +64,8 @@ const JSONFeedScreen = () => {
       style={styles.container}
       source={require('./assets/img/bg.png')}>
       <FlatList
+        refreshing={true}
+        onRefresh={() => loadData()}
         data={dataArray ? dataArray : []}
         renderItem={renderRow}
         keyExtractor={item => item.id}
