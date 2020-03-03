@@ -16,7 +16,7 @@ import {Input, Divider, Badge} from 'react-native-elements';
 
 import {Button as ElButton} from 'react-native-elements';
 
-const HomeScreen = () => {
+const HomeScreen = props => {
   const [account, setAccount] = useState({username: '', password: ''});
 
   return (
@@ -62,6 +62,7 @@ const HomeScreen = () => {
           type="outline"
           style={{marginTop: 8}}
           title="Register"
+          onPress={() => props.navigation.navigate('register')}
           titleStyle={{color: '#FFF'}}
           containerStyle={{marginTop: 10}}
         />
