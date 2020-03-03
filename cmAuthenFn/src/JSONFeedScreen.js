@@ -30,7 +30,10 @@ const renderRow = ({item, index}) => (
 
     {/* Bottom section */}
     <Image
-      source={require('./assets/img/loadingimg.png')}
+      source={{
+        uri:
+          'http://www.codemobiles.com/biz/training/images/react_banner.jpg?3',
+      }}
       style={styles.listYoutbeImage}
     />
   </TouchableOpacity>
