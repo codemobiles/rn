@@ -3,7 +3,6 @@ import {Image} from 'react-native';
 
 import {createSwitchNavigator, createAppContainer} from 'react-navigation';
 import {createStackNavigator} from 'react-navigation-stack';
-import {createBottomTabNavigator} from 'react-navigation-tabs';
 
 import HomeScreen from './HomeScreen';
 import RegisterScreen from './RegisterScreen';
