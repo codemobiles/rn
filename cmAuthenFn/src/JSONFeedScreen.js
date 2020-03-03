@@ -30,6 +30,7 @@ const renderRow = ({item, index}) => (
 
     {/* Bottom section */}
     <Image
+      resizeMode="cover"
       source={{
         uri:
           'http://www.codemobiles.com/biz/training/images/react_banner.jpg?3',
@@ -40,6 +41,18 @@ const renderRow = ({item, index}) => (
 );
 
 const JSONFeedScreen = () => {
+  useEffect(() => {
+    // code called when component is updated
+    console.log('JSON Created');
+    axios
+      .get(
+        'http://codemobiles.com/adhoc/youtubes/index_new.php?username=admin&password=password&type=foods',
+      )
+      .then(result => {
+        console.log(JSON.stringify(result.data));
+      });
+  }, []);
+
   return (
     <ImageBackground
       style={styles.container}
