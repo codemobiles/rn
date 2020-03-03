@@ -66,7 +66,7 @@ adb shell input keyevent 82
 
 git reset --hard
 
-
+https://www.youtube.com/watch?v=HkOF7ixQmeI&list=PLjPfp4Ph3gBowskVFVlPbh6CkHeSlH0uW
 
 
 Day 1#
