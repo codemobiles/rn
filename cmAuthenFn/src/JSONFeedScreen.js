@@ -13,7 +13,9 @@ import AsyncStorage from '@react-native-community/async-storage';
 import {ifIphoneX} from 'react-native-iphone-x-helper';
 
 const renderRow = ({item, index, navigation}) => (
-  <TouchableOpacity onPress={() => navigation.navigate('youtube')}>
+  <TouchableOpacity
+    style={styles.listCard}
+    onPress={() => navigation.navigate('youtube')}>
     {/* Top section - Row */}
     <View style={styles.listCardView}>
       {/* Avatar */}
