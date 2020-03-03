@@ -25,9 +25,9 @@ react-native run-android --port=1234
     react-native link react-native-vector-icons
     react-native link react-native-gesture-handler
     react-native link react-native-reanimated
-    react-native link react-native-screens
-    react-native link react-native-safe-area-context
-    react-native link @react-native-community/masked-view      
+     react-native link react-native-screens
+     react-native link react-native-safe-area-context
+     react-native link @react-native-community/masked-view      
     react-native link @react-native-community/async-storage    
 
     ยังเพิ่งลงชุดนี้
