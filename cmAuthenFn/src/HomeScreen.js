@@ -55,7 +55,10 @@ const HomeScreen = props => {
         </View>
 
         <View style={{marginTop: 32}}>
-          <Button title="Login" />
+          <Button
+            title="Login"
+            onPress={() => props.navigation.navigate('AppScene')}
+          />
         </View>
 
         <ElButton
