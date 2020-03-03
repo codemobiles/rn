@@ -29,7 +29,7 @@ CMEntry = props => {
       />
       <Input
         secureTextEntry={props.isPassword}
-        keyboardType="email-address"
+        keyboardType={props.isPassword ? null : "email-address"}
         style={{marginLeft: 16, flex: 1}}
         placeholder={props.hint}
       />
