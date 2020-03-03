@@ -13,9 +13,11 @@ import AsyncStorage from '@react-native-community/async-storage';
 import {ifIphoneX} from 'react-native-iphone-x-helper';
 
 const renderRow = ({item, index}) => (
-  <Text>
-    {index + 1}. {item}
-  </Text>
+  <TouchableOpacity onPress={() => alert('1234')}>
+    <Text>
+      {index + 1}. {item}
+    </Text>
+  </TouchableOpacity>
 );
 
 const JSONFeedScreen = () => {
