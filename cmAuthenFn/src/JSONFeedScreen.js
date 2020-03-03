@@ -13,10 +13,20 @@ import AsyncStorage from '@react-native-community/async-storage';
 import {ifIphoneX} from 'react-native-iphone-x-helper';
 
 const renderRow = ({item, index}) => (
-  <TouchableOpacity onPress={() => alert('1234')}>
-    <Text>
-      {index + 1}. {item}
-    </Text>
+  <TouchableOpacity onPress={() => alert('1234')} style={styles.listCard}>
+    {/* Top section */}
+    <View style={styles.listCardView}>
+      {/* Avatar */}
+      <Image
+        source={require('./assets/img/cmdev_icon.png')}
+        style={styles.listAvatar}
+      />
+      {/* Title and subtitle */}
+      <View style={{flexDirection: 'column', flex: 1}}>
+        <Text style={{fontWeight: 'bold'}}>Title</Text>
+        <Text>Subtitle</Text>
+      </View>
+    </View>
   </TouchableOpacity>
 );
 
