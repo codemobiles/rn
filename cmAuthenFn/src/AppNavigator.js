@@ -8,8 +8,8 @@ import {createBottomTabNavigator} from 'react-navigation-tabs';
 import HomeScreen from './HomeScreen';
 import RegisterScreen from './RegisterScreen';
 import JSONFeedScreen from './JSONFeedScreen';
-import CameraScreen from "./CameraScreen";
-import YoutubeScreen from "./YoutubeScreen";
+import CameraScreen from './CameraScreen';
+import YoutubeScreen from './YoutubeScreen';
 
 const jsonTabOp = {
   tabBarLabel: 'Feed',
@@ -57,17 +57,34 @@ const AuthenStack = createStackNavigator(
   },
 );
 
+const TabScreens = createBottomTabNavigator(
+  {
+    json: {screen: JSONFeedScreen, navigationOptions: jsonTabOp},
+    camera: {screen: CameraScreen, navigationOptions: cameraTabOp},
+  },
+  {
+    initialRouteName: 'json',
+  },
+);
 
-const AppStack = createStackNavigator({
-  json: {screen: JSONFeedScreen}
-}, {
-  initialRouteName: "json"
-})
+const AppStack = createStackNavigator(
+  {
+    tab: {screen: TabScreens},
+  },
+  {
+    initialRouteName: 'tab',
+  },
+);
 
 // HOC
-export default createAppContainer(createSwitchNavigator({
-  AuthenScene: AuthenStack,
-  AppScene: AppStack
-},{
-  initialRouteName: "AuthenScene"
-}));
+export default createAppContainer(
+  createSwitchNavigator(
+    {
+      AuthenScene: AuthenStack,
+      AppScene: AppStack,
+    },
+    {
+      initialRouteName: 'AuthenScene',
+    },
+  ),
+);
