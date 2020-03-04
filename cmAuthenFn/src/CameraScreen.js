@@ -82,6 +82,13 @@ const CameraScreen = () => {
           <Text style={styles.text}>GALLERY</Text>
         </TouchableOpacity>
       </View>
+
+      {image && (
+        <Image
+          source={image}
+          style={{flex: 1, width: '100%', marginBottom: 50}}
+        />
+      )}
     </ImageBackground>
   );
 };
