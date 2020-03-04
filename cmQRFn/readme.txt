@@ -10,7 +10,6 @@ react-native link react-native-reanimated
 react-native link react-native-screens
 react-native link react-native-safe-area-context
 react-native link @react-native-community/masked-view      
-react-native link @react-native-community/async-storage    
 react-native link react-native-iphone-x-helper
 react-native link react-native-svg
 react-native link react-native-camera 
