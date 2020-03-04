@@ -10,6 +10,7 @@ import RegisterScreen from './RegisterScreen';
 import JSONFeedScreen from './JSONFeedScreen';
 import CameraScreen from './CameraScreen';
 import YoutubeScreen from './YoutubeScreen';
+import AsyncStorage from '@react-native-community/async-storage';
 
 const jsonTabOp = {
   tabBarOptions: {activeTintColor: 'red'},
@@ -78,8 +79,13 @@ const AppStack = createStackNavigator(
   },
 );
 
-isLoggedIn = () => {
-  return true;
+isLoggedIn = async () => {
+  let result = await AsyncStorage.getItem('already_logged_in');
+  if (result && result == 'yes') {
+    return true;
+  } else {
+    return false;
+  }
 };
 
 // HOC
