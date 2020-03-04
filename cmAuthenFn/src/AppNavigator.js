@@ -96,7 +96,7 @@ export default createAppContainer(
       AppScene: AppStack,
     },
     {
-      initialRouteName: isLoggedIn() ? 'AppScene' : 'AuthenScene',
+      initialRouteName: 'AuthenScene',
     },
   ),
 );

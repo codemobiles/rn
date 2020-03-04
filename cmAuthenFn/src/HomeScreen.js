@@ -19,6 +19,19 @@ import {Button as ElButton} from 'react-native-elements';
 const HomeScreen = props => {
   const [account, setAccount] = useState({username: '', password: ''});
 
+  const checkLogin = async () => {
+    let _already_logged_in = await AsyncStorage.getItem('already_logged_in');
+    if (_already_logged_in && _already_logged_in == 'yes') {
+      let _regUsername = await AsyncStorage.getItem('username');
+      let _regPassword = await AsyncStorage.getItem('password');
+      setAccount({username: _regUsername, password: _regPassword});
+    }
+  };
+
+  useEffect(() => {
+    checkLogin();
+  }, []);
+
   const submit = async () => {
     let _regUsername = await AsyncStorage.getItem('username');
     let _regPassword = await AsyncStorage.getItem('password');
