@@ -12,25 +12,24 @@ import {
 import Icon from 'react-native-vector-icons/FontAwesome';
 import {Input, Divider, Badge} from 'react-native-elements';
 
-// import AsyncStorage from '@react-native-community/async-storage';
+import AsyncStorage from '@react-native-community/async-storage';
 
 import {Button as ElButton} from 'react-native-elements';
 
 const HomeScreen = props => {
   const [account, setAccount] = useState({username: '', password: ''});
 
-
-  submit = async ()=>{
-    let _regUsername = await AsyncStorage.getItem("username")
-    let _regPassword = await AsyncStorage.getItem("password")
-    const {username, password} = this.state
-    if (_regUsername == username && _regPassword == password){
-      await AsyncStorage.setItem("already_logged_in", "yes")
-      this.props.navigation.navigate("AppScene")
-    }else{
-      alert("Authentication failed!")
-    }    
-  }
+  const submit = async () => {
+    let _regUsername = await AsyncStorage.getItem('username');
+    let _regPassword = await AsyncStorage.getItem('password');
+    const {username, password} = account;
+    if (_regUsername == username && _regPassword == password) {
+      await AsyncStorage.setItem('already_logged_in', 'yes');
+      props.navigation.navigate('AppScene');
+    } else {
+      alert('Authentication failed!');
+    }
+  };
 
   return (
     <ImageBackground source={require('./assets/img/bg.png')} style={{flex: 1}}>
@@ -68,10 +67,7 @@ const HomeScreen = props => {
         </View>
 
         <View style={{marginTop: 32}}>
-          <Button
-            title="Login"
-            onPress={() => props.navigation.navigate('AppScene')}
-          />
+          <Button title="Login" onPress={submit} />
         </View>
 
         <ElButton
