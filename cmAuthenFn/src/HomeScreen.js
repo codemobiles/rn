@@ -61,6 +61,7 @@ const HomeScreen = props => {
         <View style={{flexDirection: 'row', alignItems: 'center'}}>
           <Icon name="user" size={35} type="ionicon" color="#517fa4" reverse />
           <Input
+            autoCapitalize="none"
             value={account.username}
             keyboardType="email-address"
             onChangeText={text => setAccount({...account, username: text})}
