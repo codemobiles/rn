@@ -49,6 +49,21 @@ const CameraScreen = () => {
     });
   };
 
+
+  const uploadWithAxios = async () => {
+    const data = new FormData();
+    data.append('username', 'codemobiles'); // you can append anyone.
+    data.append('password', '1234'); // you can append anyone.
+    data.append('userfile', {
+      uri: image.uri,
+      type: 'image/jpeg', // or photo.type
+      name: 'testPhotoName.jpg',
+    });
+
+    let result = await axios.post('http://192.168.0.101:3000/uploads', data);
+    Alert.alert(JSON.stringify(result.data));
+  };
+
   return (
     <ImageBackground
       source={require('./assets/img/bg.png')}
@@ -89,6 +104,16 @@ const CameraScreen = () => {
           style={{flex: 1, width: '100%', marginBottom: 50}}
         />
       )}
+
+       {/* Show Upload button */}
+       {image && (
+        <TouchableOpacity
+          onPress={() => uploadWithAxios(image)}
+          style={styles.upload_button}>
+          <Text style={styles.text}>UPLOAD</Text>
+        </TouchableOpacity>
+      )}
+
     </ImageBackground>
   );
 };
