@@ -45,7 +45,6 @@ const tab2_Option = {
   ),
 };
 
-
 const TabsScreen = createBottomTabNavigator({
   generateScreen: {screen: TabQRcode, navigationOptions: () => tab1_Option},
   scanerScreen: {screen: TabScanner, navigationOptions: () => tab2_Option},
