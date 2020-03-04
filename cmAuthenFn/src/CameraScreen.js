@@ -60,7 +60,7 @@ const CameraScreen = () => {
       name: 'testPhotoName.jpg',
     });
 
-    let result = await axios.post('http://192.168.0.101:3000/uploads', data);
+    let result = await axios.post('http://192.168.0.109:3000/uploads', data);
     Alert.alert(JSON.stringify(result.data));
   };
 
