@@ -27,9 +27,8 @@ const CameraScreen = () => {
       />
 
       {/* Buttons section */}
-      <View style={{flexDirection: 'row', justifyContent: 'space-between',}}>
-
-      <Text style={styles.text}>CAMERA</Text>
+      <View style={{flexDirection: 'row', justifyContent: 'space-around'}}>
+        <Text style={styles.text}>CAMERA</Text>
 
       </View>
     </ImageBackground>
@@ -37,8 +36,6 @@ const CameraScreen = () => {
 };
 
 export default CameraScreen;
-
-
 
 const styles = StyleSheet.create({
   container: {
@@ -89,4 +86,3 @@ const styles = StyleSheet.create({
     color: '#FFFFFF',
   },
 });
-
