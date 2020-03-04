@@ -18,7 +18,10 @@ const TabQRcode = () => {
 
   return (
     <View style={{flex: 1, flexDirection: 'column'}}>
-      <TextInput placeholder="QR Value" />
+      <TextInput
+        placeholder="QR Value"
+        onChangeText={text => setQRValue(text)}
+      />
       <QRCode value={qrValue != '' ? qrValue : 'www.codemobiles.com'} />
     </View>
   );
