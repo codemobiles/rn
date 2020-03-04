@@ -78,6 +78,10 @@ const AppStack = createStackNavigator(
   },
 );
 
+isLoggedIn = () => {
+  return true;
+};
+
 // HOC
 export default createAppContainer(
   createSwitchNavigator(
@@ -86,7 +90,7 @@ export default createAppContainer(
       AppScene: AppStack,
     },
     {
-      initialRouteName: 'AuthenScene',
+      initialRouteName: isLoggedIn() ? 'AppScene' : 'AuthenScene',
     },
   ),
 );
