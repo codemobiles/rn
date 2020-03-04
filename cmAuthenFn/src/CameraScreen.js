@@ -16,6 +16,8 @@ import ImagePicker from 'react-native-image-crop-picker';
 import axios from 'axios';
 
 const CameraScreen = () => {
+  const [image, setImage] = useState(null);
+
   const openCamera = async cropIt => {
     let image = await ImagePicker.openCamera({
       cropping: cropIt,
