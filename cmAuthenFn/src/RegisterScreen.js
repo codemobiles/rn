@@ -43,7 +43,6 @@ const RegisterScreen = props => {
 
   const submit = async () => {
     const {username, password} = account;
-
     await AsyncStorage.setItem('username', username);
     await AsyncStorage.setItem('password', password);
     props.navigation.goBack();
@@ -78,10 +77,7 @@ const RegisterScreen = props => {
         />
 
         <View style={{marginTop: 32}}>
-          <Button
-            title="Register"
-            onPress={() => alert(JSON.stringify(account))}
-          />
+          <Button title="Register" onPress={submit} />
         </View>
 
         <ElButton

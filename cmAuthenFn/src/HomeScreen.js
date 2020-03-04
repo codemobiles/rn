@@ -19,6 +19,19 @@ import {Button as ElButton} from 'react-native-elements';
 const HomeScreen = props => {
   const [account, setAccount] = useState({username: '', password: ''});
 
+
+  submit = async ()=>{
+    let _regUsername = await AsyncStorage.getItem("username")
+    let _regPassword = await AsyncStorage.getItem("password")
+    const {username, password} = this.state
+    if (_regUsername == username && _regPassword == password){
+      await AsyncStorage.setItem("already_logged_in", "yes")
+      this.props.navigation.navigate("AppScene")
+    }else{
+      alert("Authentication failed!")
+    }    
+  }
+
   return (
     <ImageBackground source={require('./assets/img/bg.png')} style={{flex: 1}}>
       <View
