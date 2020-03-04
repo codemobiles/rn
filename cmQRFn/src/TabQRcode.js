@@ -16,6 +16,16 @@ const PATH_TO_LOGO = './assets/img/cmdev_icon.png';
 const TabQRcode = () => {
   const [qrValue, setQRValue] = React.useState('');
 
+  const CMQRCode = props => {
+    const {value} = props
+    return (
+      <View style={{margin: 8}}>
+        <QRCode {...props} value={value != "" ? value : "www.codemobiles.com"} />
+      </View>
+    );
+  };
+
+
   return (
     <View style={{flex: 1, flexDirection: 'column'}}>
       <TextInput
@@ -25,12 +35,15 @@ const TabQRcode = () => {
 
       <ScrollView
         contentContainerStyle={{
-          flex: 1,
           flexDirection: 'column',
           alignItems: 'center',
         }}>
-        {[1, 2, 3, 4, 5, 6, 7].map(item => (
-          <QRCode value={item != '' ? qrValue : 'www.codemobiles.com'} />
+        {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map(item => (
+          <CMQRCode
+            style={{marginTop: 16}}
+            key={item.toString()}
+            value={qrValue != '' ? qrValue : 'www.codemobiles.com'}
+          />
         ))}
       </ScrollView>
     </View>
