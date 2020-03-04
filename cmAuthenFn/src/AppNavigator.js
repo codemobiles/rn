@@ -86,7 +86,7 @@ export default createAppContainer(
       AppScene: AppStack,
     },
     {
-      initialRouteName: 'AppScene',
+      initialRouteName: 'AuthenScene',
     },
   ),
 );

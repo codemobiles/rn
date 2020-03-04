@@ -12,7 +12,7 @@ import {
 import Icon from 'react-native-vector-icons/FontAwesome';
 import {Input, Divider, Badge} from 'react-native-elements';
 
-// import AsyncStorage from '@react-native-community/async-storage';
+import AsyncStorage from '@react-native-community/async-storage';
 
 import {Button as ElButton} from 'react-native-elements';
 
@@ -40,6 +40,16 @@ CMEntry = props => {
 
 const RegisterScreen = props => {
   const [account, setAccount] = useState({username: '', password: ''});
+
+
+  const submit = ()=>{
+
+    const {username, password} = account
+
+    await AsyncStorage.setItem("username", username) 
+    await AsyncStorage.setItem("password", password)
+    navigation.goBack()
+  };
 
   return (
     <ImageBackground source={require('./assets/img/bg.png')} style={{flex: 1}}>

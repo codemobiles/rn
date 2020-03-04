@@ -49,7 +49,6 @@ const CameraScreen = () => {
     });
   };
 
-
   const uploadWithAxios = async () => {
     const data = new FormData();
     data.append('username', 'codemobiles'); // you can append anyone.
@@ -61,6 +60,7 @@ const CameraScreen = () => {
     });
 
     let result = await axios.post('http://192.168.0.109:3000/uploads', data);
+    console.log(JSON.stringify(result.data));
     Alert.alert(JSON.stringify(result.data));
   };
 
@@ -105,15 +105,14 @@ const CameraScreen = () => {
         />
       )}
 
-       {/* Show Upload button */}
-       {image && (
+      {/* Show Upload button */}
+      {image && (
         <TouchableOpacity
           onPress={() => uploadWithAxios(image)}
           style={styles.upload_button}>
           <Text style={styles.text}>UPLOAD</Text>
         </TouchableOpacity>
       )}
-
     </ImageBackground>
   );
 };
