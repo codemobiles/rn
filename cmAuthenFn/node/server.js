@@ -6,7 +6,7 @@ app.get('/', (req, res) => {
 });
 
 app.get('/login', (req, res) => {
-  res.json({result: 'I am login folder'});
+  res.json({result: 'login', detail: req.query});
 });
 
 app.listen(3000, () => {
