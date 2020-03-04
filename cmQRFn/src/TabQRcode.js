@@ -6,6 +6,7 @@ import {
   ImageBackground,
   ScrollView,
   TextInput,
+  Text,
 } from 'react-native';
 import {ifIphoneX} from 'react-native-iphone-x-helper';
 
@@ -15,7 +16,7 @@ const PATH_TO_LOGO = './assets/img/cmdev_icon.png';
 const TabQRcode = () => {
   return (
     <View>
-      <Text></Text>
+      <QRCode value="www.codemobiles.com" />
     </View>
   );
 };
