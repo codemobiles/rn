@@ -16,6 +16,10 @@ import ImagePicker from 'react-native-image-crop-picker';
 import axios from 'axios';
 
 const CameraScreen = () => {
+  const openCamera = cropIt => {};
+
+  const openPhotoGallery = cropIt => {};
+
   return (
     <ImageBackground
       source={require('./assets/img/bg.png')}
@@ -29,17 +33,23 @@ const CameraScreen = () => {
       {/* Buttons section */}
       <View style={{flexDirection: 'row', justifyContent: 'space-around'}}>
         {/* CAMERA */}
-        <TouchableOpacity style={styles.button}>
+        <TouchableOpacity
+          onPress={() => openCamera(false)}
+          style={styles.button}>
           <Text style={styles.text}>CAMERA</Text>
         </TouchableOpacity>
 
         {/* CAMERA  + CROP*/}
-        <TouchableOpacity style={styles.button}>
+        <TouchableOpacity
+          onPress={() => openCamera(true)}
+          style={styles.button}>
           <Text style={styles.text}>CAMERA+CROP</Text>
         </TouchableOpacity>
 
         {/* GALLERY*/}
-        <TouchableOpacity style={styles.button}>
+        <TouchableOpacity
+          onPress={() => openPhotoGallery(true)}
+          style={styles.button}>
           <Text style={styles.text}>GALLERY</Text>
         </TouchableOpacity>
       </View>
