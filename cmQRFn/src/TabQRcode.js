@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {Component, useState} from 'react';
 import {
   View,
   StyleSheet,
@@ -51,7 +51,7 @@ const TabQRcode = () => {
           flexDirection: 'column',
           alignItems: 'center',
         }}>
-        <CMQRCode value={qrValue} />
+        <CMQRCodeClass value={qrValue} />
         <CMQRCode value={qrValue} logo={require(PATH_TO_LOGO)} logoSize={30} />
         <CMQRCode
           value={qrValue}
@@ -80,6 +80,24 @@ const CMQRCode = props => {
     </View>
   );
 };
+
+class CMQRCodeClass extends Component {
+  constructor(props) {
+    super(props);
+  }
+
+  render() {
+    const {value} = this.props;
+    return (
+      <View style={{margin: 8}}>
+        <QRCode
+          {...this.props}
+          value={value != '' ? value : 'www.codemobiles.com'}
+        />
+      </View>
+    );
+  }
+}
 
 export default TabQRcode;
 
