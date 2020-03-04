@@ -29,6 +29,7 @@ react-native run-android --port=1234
     react-native link react-native-safe-area-context
     react-native link @react-native-community/masked-view      
     react-native link @react-native-community/async-storage    
+    react-native link react-native-permissions
 
     ยังเพิ่งลงชุดนี้
     npm i react-native-youtube react-native-image-crop-picker 
