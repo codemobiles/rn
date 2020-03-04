@@ -29,7 +29,9 @@ const TabQRcode = () => {
           flexDirection: 'column',
           alignItems: 'center',
         }}>
-        <QRCode value={qrValue != '' ? qrValue : 'www.codemobiles.com'} />
+        {[1, 2, 3, 4, 5, 6, 7].map(item => (
+          <QRCode value={item.toString()} />
+        ))}
       </ScrollView>
     </View>
   );
