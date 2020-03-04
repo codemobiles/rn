@@ -22,7 +22,15 @@ const TabQRcode = () => {
         placeholder="QR Value"
         onChangeText={text => setQRValue(text)}
       />
-      <QRCode value={qrValue != '' ? qrValue : 'www.codemobiles.com'} />
+
+      <ScrollView
+        contentContainerStyle={{
+          flex: 1,
+          flexDirection: 'column',
+          alignItems: 'center',
+        }}>
+        <QRCode value={qrValue != '' ? qrValue : 'www.codemobiles.com'} />
+      </ScrollView>
     </View>
   );
 };
