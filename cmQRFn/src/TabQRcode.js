@@ -30,7 +30,7 @@ const TabQRcode = () => {
           alignItems: 'center',
         }}>
         {[1, 2, 3, 4, 5, 6, 7].map(item => (
-          <QRCode value={item.toString()} />
+          <QRCode value={item != '' ? qrValue : 'www.codemobiles.com'} />
         ))}
       </ScrollView>
     </View>
