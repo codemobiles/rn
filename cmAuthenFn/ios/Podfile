@@ -48,6 +48,10 @@ target 'cmAuthenFn' do
 
   pod 'RNCMaskedView', :path => '../node_modules/@react-native-community/masked-view'
 
+  pod 'RCTYouTube', :path => '../node_modules/react-native-youtube'
+
+  pod 'RNImageCropPicker', :path => '../node_modules/react-native-image-crop-picker'
+
   target 'cmAuthenFnTests' do
     inherit! :search_paths
     # Pods for testing

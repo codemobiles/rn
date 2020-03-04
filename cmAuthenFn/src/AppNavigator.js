@@ -70,7 +70,7 @@ const TabScreens = createBottomTabNavigator(
 
 const AppStack = createStackNavigator(
   {
-    tab: {screen: TabScreens},
+    tab: {screen: TabScreens, navigationOptions: {headerShown: false}},
     youtube: {screen: YoutubeScreen},
   },
   {

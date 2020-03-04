@@ -15,7 +15,7 @@ import {ifIphoneX} from 'react-native-iphone-x-helper';
 const renderRow = ({item, index, navigation}) => (
   <TouchableOpacity
     style={styles.listCard}
-    onPress={() => navigation.navigate('youtube')}>
+    onPress={() => navigation.navigate('youtube', {item})}>
     {/* Top section - Row */}
     <View style={styles.listCardView}>
       {/* Avatar */}
@@ -36,6 +36,14 @@ const renderRow = ({item, index, navigation}) => (
       style={styles.listYoutbeImage}
     />
   </TouchableOpacity>
+);
+
+renderHeader = () => (
+  <Image
+    source={require('./assets/img/header_react_native.png')}
+    resizeMode="contain"
+    style={{height: 100, width: '100%'}}
+  />
 );
 
 const JSONFeedScreen = props => {
@@ -62,9 +70,8 @@ const JSONFeedScreen = props => {
     }, 1000);
   };
 
-  useEffect(async () => {
-    // code called when component is updated
-    await loadData();
+  useEffect(() => {
+    loadData();
   }, []);
 
   return (
@@ -73,6 +80,7 @@ const JSONFeedScreen = props => {
       source={require('./assets/img/bg.png')}>
       <FlatList
         refreshing={isFetching}
+        ListHeaderComponent={renderHeader}
         onRefresh={() => loadData()}
         data={dataArray ? dataArray : []}
         renderItem={({item, index}) =>
