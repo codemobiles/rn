@@ -15,7 +15,8 @@ const PATH_TO_LOGO = './assets/img/cmdev_icon.png';
 
 const TabQRcode = () => {
   return (
-    <View>
+    <View style={{flex: 1, flexDirection: 'column'}}>
+      <TextInput placeholder="QR Value" />
       <QRCode value="www.codemobiles.com" />
     </View>
   );
