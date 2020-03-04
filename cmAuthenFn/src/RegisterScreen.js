@@ -41,14 +41,12 @@ CMEntry = props => {
 const RegisterScreen = props => {
   const [account, setAccount] = useState({username: '', password: ''});
 
+  const submit = async () => {
+    const {username, password} = account;
 
-  const submit = ()=>{
-
-    const {username, password} = account
-
-    await AsyncStorage.setItem("username", username) 
-    await AsyncStorage.setItem("password", password)
-    navigation.goBack()
+    await AsyncStorage.setItem('username', username);
+    await AsyncStorage.setItem('password', password);
+    props.navigation.goBack();
   };
 
   return (
