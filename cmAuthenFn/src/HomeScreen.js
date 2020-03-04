@@ -28,7 +28,7 @@ const HomeScreen = props => {
     }
   };
 
-  useEffect(() => {
+  React.useEffect(() => {
     checkLogin();
   }, []);
 
@@ -61,6 +61,7 @@ const HomeScreen = props => {
         <View style={{flexDirection: 'row', alignItems: 'center'}}>
           <Icon name="user" size={35} type="ionicon" color="#517fa4" reverse />
           <Input
+            value={account.username}
             keyboardType="email-address"
             onChangeText={text => setAccount({...account, username: text})}
             style={{marginLeft: 16, flex: 1}}
@@ -72,6 +73,7 @@ const HomeScreen = props => {
         <View style={{flexDirection: 'row', alignItems: 'center'}}>
           <Icon name="lock" size={35} type="ionicon" color="#517fa4" />
           <Input
+            value={account.password}
             secureTextEntry
             onChangeText={text => setAccount({...account, password: text})}
             style={{marginLeft: 16, flex: 1}}
