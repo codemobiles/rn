@@ -47,9 +47,10 @@ const TabGPSScreen = () => {
 
     return () => {
       // clean up
+      navigator && navigator.geolocation.clearWatch(watchId);
+
     };
   }, []);
-
 
   const startLocationTracking = () => {
     navigator.geolocation = require('@react-native-community/geolocation');

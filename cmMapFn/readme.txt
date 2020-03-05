@@ -22,3 +22,4 @@ react-native link @react-native-community/async-storage
 supportLibVersion = "28.0.3"            
 
 
+https://aboutreact.com/react-native-calculate-distance-between-two-locations/
