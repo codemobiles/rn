@@ -32,7 +32,9 @@ const ScannerScreen = props => {
               justifyContent: 'center',
               alignItems: 'center',
             }}>
-            <Text style={{fontSize: 25, fontWeight: 'bold'}}>Loading...</Text>
+            <Text style={{fontSize: 25, fontWeight: 'bold', color: '#FFF'}}>
+              Loading...
+            </Text>
           </View>
         )}
       </View>
