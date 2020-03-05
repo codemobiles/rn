@@ -43,7 +43,9 @@ const TabMapScreen = () => {
         style={styles.map}
         mapType="standard" // NORMAL, SATELLITE, HYBRID
       >
-        <Marker coordinate={region} />
+        {markers.map(marker => (
+          <Marker key={marker.key} coordinate={marker.coordinate} />
+        ))}
       </MapView>
     </View>
   );
