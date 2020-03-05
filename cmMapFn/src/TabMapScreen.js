@@ -56,6 +56,10 @@ const TabMapScreen = () => {
     console.log(JSON.stringify(result));
   };
 
+  function onClickCallout({latitude, longitude}) {
+    openMap({query: `${latitude}, ${longitude}`, provider: 'google'});
+  }
+
   return (
     <View style={styles.container}>
       <MapView
@@ -65,7 +69,10 @@ const TabMapScreen = () => {
         mapType="standard" // NORMAL, SATELLITE, HYBRID
       >
         {markers.map(({coordinate, key}) => (
-          <Marker key={key} coordinate={coordinate}>
+          <Marker
+            key={key}
+            coordinate={coordinate}
+            onCalloutPress={() => onClickCallout(coordinate)}>
             <View
               style={{
                 flexDirection: 'column',
