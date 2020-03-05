@@ -38,6 +38,19 @@ const TabGPSScreen = () => {
     }),
   );
 
+
+  useEffect(()=>{
+    if (Platform.OS == 'android'){
+      requestLocationPermission()
+    }else{
+      startLocationTracking()
+    }
+
+    return ()=>{
+      // clean up
+    }
+  },[])
+
   function startLocationTracking() {
     navigator.geolocation = require('@react-native-community/geolocation');
     watchId = navigator.geolocation.watchPosition(
@@ -58,10 +71,10 @@ const TabGPSScreen = () => {
   }
 
   async function requestLocationPermission() {
-    const chckLocationPermission = PermissionsAndroid.check(
+    const checkLocationPermission = PermissionsAndroid.check(
       PermissionsAndroid.PERMISSIONS.ACCESS_FINE_LOCATION,
     );
-    if (chckLocationPermission === PermissionsAndroid.RESULTS.GRANTED) {
+    if (checkLocationPermission === PermissionsAndroid.RESULTS.GRANTED) {
       startLocationTracking();
     } else {
       try {
