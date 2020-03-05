@@ -7,6 +7,11 @@ import QRCodeScanner from 'react-native-qrcode-scanner';
 const ScannerScreen = props => {
   const scannerRef = useRef(null);
   const [isReady, setIsReady] = useState(false);
+  useEffect(() => {
+    setTimeout(() => {
+      setIsReady(true);
+    }, 300);
+  }, []);
 
   const showScanner = () => {
     return (

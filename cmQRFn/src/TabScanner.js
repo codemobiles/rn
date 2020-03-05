@@ -49,6 +49,8 @@ const onResult = result => {
 };
 
 const onClickScan = ({navigation}) => {
+  // navigation.navigate('scanScreen', {onResult});
+
   navigation.navigate('scanScreen', {onResult});
 };
 
