@@ -3,6 +3,7 @@ const app = express();
 const bodyParser = require('body-parser');
 
 // http://localhost:3000/record_position
+// {"lat": "123", "lng": "5555"}
 app.use(bodyParser.json());
 
 app.post('/record_position', (req, res) => {
