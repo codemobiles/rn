@@ -9,9 +9,16 @@ const ScannerScreen = props => {
   const [isReady, setIsReady] = useState(false);
   useEffect(() => {
     setTimeout(() => {
-      setIsReady(true);
-    }, 300);
+      // setIsReady(true);
+      onSuccess('www.codemobiles.com');
+    }, 3000);
   }, []);
+
+  const onSuccess = result => {
+    const onResult = props.navigation.getParam('onResult');
+    onResult(result);
+    props.navigation.goBack();
+  };
 
   const showScanner = () => {
     return (
