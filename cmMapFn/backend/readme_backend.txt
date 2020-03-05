@@ -1,0 +1,1 @@
+npm i express body-parser sequelize sqlite3
