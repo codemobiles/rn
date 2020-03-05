@@ -32,27 +32,25 @@ const TabMapScreen = () => {
   });
 
   useEffect(() => {
-      loadMarkers()
-  }, [])
+    // loadMarkers();
+  }, []);
 
-  async function loadMarkers(){
-    let result = await Axios.get(
-      'http://192.168.0.107:5000/position'
-    );          
-    
-    let tmpMarkers = []
-    result.data.forEach(coordinate=>{ 
+  async function loadMarkers() {
+    let result = await Axios.get('http://192.168.0.107:5000/position');
+
+    let tmpMarkers = [];
+    result.data.forEach(coordinate => {
       tmpMarkers = [...tmpMarkers, {coordinate, key: coordinate.id}];
-    })    
-    setMarkers(tmpMarkers)
+    });
+    setMarkers(tmpMarkers);
   }
 
   async function addMarker(coordinate) {
     setRegion({...region, ...coordinate});
     setMarkers([...markers, {coordinate, key: JSON.stringify(coordinate)}]);
 
-    debugger
-    console.log(markers)
+    debugger;
+    console.log(markers);
 
     let result = await Axios.post(
       'http://192.168.0.107:5000/record_position',
@@ -61,10 +59,9 @@ const TabMapScreen = () => {
     console.log(JSON.stringify(result));
   }
 
-
-  function onClickCallout({latitude, longitude}){
+  function onClickCallout({latitude, longitude}) {
     openMap({query: `${latitude}, ${longitude}`, provider: 'google'});
-  };
+  }
 
   return (
     <View style={styles.container}>
@@ -75,9 +72,10 @@ const TabMapScreen = () => {
         mapType="standard" // NORMAL, SATELLITE, HYBRID
       >
         {markers.map(({key, coordinate}) => (
-          <Marker 
-          onCalloutPress={() => onClickCallout(coordinate)}
-          key={key} coordinate={coordinate}>
+          <Marker
+            onCalloutPress={() => onClickCallout(coordinate)}
+            key={key}
+            coordinate={coordinate}>
             <View
               style={{
                 flexDirection: 'column',

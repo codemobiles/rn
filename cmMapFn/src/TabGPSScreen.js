@@ -19,11 +19,16 @@ const LONGITUDE_DELTA = 0.009;
 import SegmentedControlTab from 'react-native-segmented-control-tab';
 
 const TabGPSScreen = () => {
-  let watchId = null
+  let watchId = null;
   const [mapType, setMapType] = useState('standard');
   const [selectedIndex, setSelectedIndex] = useState(0);
-  const [latitude, setLatitude] = useState(LATITUDE);
-  const [longitude, setLongitude] = useState(LONGITUDE);
+  const [position, setPosition] = useState({
+    latitude: LATITUDE,
+    longitude: LONGITUDE,
+  });
+
+  // const [latitude, setLatitude] = useState(LATITUDE);
+  // const [longitude, setLongitude] = useState(LONGITUDE);
   const [coordinate, setCoordinate] = useState(
     new AnimatedRegion({
       latitude: LATITUDE,
@@ -39,10 +44,10 @@ const TabGPSScreen = () => {
     } else {
       startLocationTracking();
     }
-    return ()=>{
-      console.log("Unmounted", JSON.stringify(watchId))
-      navigator && navigator.geolocation.clearWatch(watchId)
-    }
+    return () => {
+      console.log('Unmounted', JSON.stringify(watchId));
+      navigator && navigator.geolocation.clearWatch(watchId);
+    };
   }, []);
 
   function startLocationTracking() {
@@ -50,11 +55,8 @@ const TabGPSScreen = () => {
     watchId = navigator.geolocation.watchPosition(
       position => {
         console.log(JSON.stringify(position));
-
         coordinate.timing(position.coords).start(); // the coordinate is made from AnimatedRegion
-        const {latitude, longitude} = position.coords;
-        setLatitude(latitude);
-        setLongitude(longitude);
+        setPosition(position.coords); // const {latitude, longitude} = position.coords;
       },
       error => {
         console.log(JSON.stringify(error));
@@ -65,7 +67,7 @@ const TabGPSScreen = () => {
         timeout: 5000,
       },
     );
-    }
+  }
 
   async function requestLocationPermission() {
     const chckLocationPermission = PermissionsAndroid.check(
@@ -78,10 +80,8 @@ const TabGPSScreen = () => {
         const granted = await PermissionsAndroid.request(
           PermissionsAndroid.PERMISSIONS.ACCESS_FINE_LOCATION,
           {
-            title: 'Cool Location App required Location permission',
-            message:
-              'We required Location permission in order to get device location ' +
-              'Please grant us.',
+            title: 'Location permission is required',
+            message: 'Please grant the permission.',
           },
         );
         if (granted === PermissionsAndroid.RESULTS.GRANTED) {
@@ -117,8 +117,9 @@ const TabGPSScreen = () => {
         showsMyLocationButton
         loadingEnabled
         region={{
-          latitude: latitude,
-          longitude: longitude,
+          // latitude: latitude,
+          // longitude: longitude,
+          ...position,
           latitudeDelta: LATITUDE_DELTA,
           longitudeDelta: LONGITUDE_DELTA,
         }}>
@@ -138,8 +139,8 @@ const TabGPSScreen = () => {
       <View style={styles.buttonContainer}>
         <TouchableOpacity style={[styles.bubble, styles.button]}>
           <Text style={styles.bottomBarContent}>
-            {parseFloat(latitude).toFixed(3)},{parseFloat(longitude).toFixed(3)}{' '}
-            °
+            {parseFloat(position.latitude).toFixed(3)},
+            {parseFloat(position.longitude).toFixed(3)} °
           </Text>
         </TouchableOpacity>
       </View>
