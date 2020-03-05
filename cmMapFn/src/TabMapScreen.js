@@ -93,6 +93,33 @@ const TabMapScreen = () => {
                 {coordinate.longitude.toFixed(2)}°{' '}
               </Text>
             </View>
+
+            {/* Callout  */}
+            <MapView.Callout tooltip style={styles.customView}>
+              <CustomCallout>
+                <TouchableOpacity
+                  style={{
+                    flexDirection: 'row',
+                    alignItems: 'center',
+                    justifyContent: 'flex-start',
+                  }}>
+                  {/** Showing image in android is not possible now (Lib. Bug) */}
+                  {Platform.OS == 'ios' ? (
+                    <Image
+                      resizeMode="cover"
+                      source={require('./assets/img/cmdev_icon.png')}
+                      style={{height: 20, width: 20, marginRight: 8}}
+                    />
+                  ) : null}
+
+                  <Text style={{fontWeight: 'bold'}}>Pos: </Text>
+                  <Text>
+                    {parseFloat(coordinate.latitude).toFixed(2)} °,{' '}
+                    {parseFloat(coordinate.longitude).toFixed(2)} °
+                  </Text>
+                </TouchableOpacity>
+              </CustomCallout>
+            </MapView.Callout>
           </Marker>
         ))}
       </MapView>
