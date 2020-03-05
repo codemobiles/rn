@@ -38,21 +38,39 @@ const TabGPSScreen = () => {
     }),
   );
 
-
-  useEffect(()=>{
-    if (Platform.OS == 'android'){
-      requestLocationPermission()
-    }else{
-      startLocationTracking()
+  useEffect(() => {
+    if (Platform.OS == 'android') {
+      requestLocationPermission();
+    } else {
+      startLocationTracking();
     }
 
-    return ()=>{
+    return () => {
       // clean up
-    }
-  },[])
+    };
+  }, []);
 
   function startLocationTracking() {
     navigator.geolocation = require('@react-native-community/geolocation');
+
+    watchId = navigator.geolocation.watchPosition(
+      position => {
+        console.log(JSON.stringify(position));
+        coordinate.timing(position.coords).start();
+        setPosition(position.coords); // const {latitude, longitude} = position.coords;
+      },
+      error => {
+        alert(JSON.stringify(error));
+      },
+      {
+        // option
+        enableHighAccuracy: true,
+        timeout: 5000,
+        maximumAge: 1000,
+      },
+    );
+
+    /*
     watchId = navigator.geolocation.watchPosition(
       position => {
         console.log(JSON.stringify(position));
@@ -68,6 +86,7 @@ const TabGPSScreen = () => {
         timeout: 5000,
       },
     );
+    */
   }
 
   async function requestLocationPermission() {
@@ -123,7 +142,20 @@ const TabGPSScreen = () => {
           ...position,
           latitudeDelta: LATITUDE_DELTA,
           longitudeDelta: LONGITUDE_DELTA,
-        }}></MapView>
+        }}>
+        <Marker.Animated coordinate={coordinate}>
+          <Image
+            source={require('./assets/img/cmdev_icon.png')}
+            style={{
+              height: 30,
+              width: 30,
+              borderColor: 'white',
+              borderRadius: 15,
+              borderWidth: 2,
+            }}
+          />
+        </Marker.Animated>
+      </MapView>
       <View style={styles.buttonContainer}>
         <TouchableOpacity style={[styles.bubble, styles.button]}>
           <Text style={styles.bottomBarContent}>
