@@ -31,6 +31,10 @@ const TabMapScreen = () => {
     longitudeDelta: LONGITUDE_DELTA,
   });
 
+  const addMarker = coordinate => {
+    setMarkers([...markers, {coordinate, key: markers.length.toString()}]);
+  };
+
   return (
     <View style={styles.container}>
       <MapView
