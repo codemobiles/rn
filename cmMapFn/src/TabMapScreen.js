@@ -44,7 +44,35 @@ const TabMapScreen = () => {
         mapType="standard" // NORMAL, SATELLITE, HYBRID
       >
         {markers.map(marker => (
-          <Marker key={marker.key} coordinate={marker.coordinate} />
+          <Marker key={marker.key} coordinate={marker.coordinate}>
+            <View
+              style={{
+                flexDirection: 'column',
+                justifyContent: 'center',
+                alignItems: 'center',
+              }}>
+              <Image
+                source={require('./assets/img/cmdev_icon.png')}
+                style={{
+                  height: 30,
+                  width: 30,
+                  borderColor: 'white',
+                  borderRadius: 15,
+                  borderWidth: 2,
+                }}
+              />
+              <Text
+                style={{
+                  color: '#FFF',
+                  fontSize: 12,
+                  backgroundColor: '#0007',
+                  borderRadius: 3,
+                }}>
+                {coordinate.latitude.toFixed(2)}°,{' '}
+                {coordinate.longitude.toFixed(2)}°{' '}
+              </Text>
+            </View>
+          </Marker>
         ))}
       </MapView>
     </View>
