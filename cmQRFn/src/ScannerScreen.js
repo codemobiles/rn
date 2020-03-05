@@ -6,22 +6,35 @@ import QRCodeScanner from 'react-native-qrcode-scanner';
 
 const ScannerScreen = props => {
   const scannerRef = useRef(null);
+  const [isReady, setIsReady] = useState(false);
 
   const showScanner = () => {
     return (
       <View style={{flex: 1, backgroundColor: 'black'}}>
-        <QRCodeScanner
-          ref={scannerRef}
-          showMarker
-          style={{flex: 1}}
-          bottomContent={
-            <TouchableOpacity
-              onPress={() => scannerRef.current.reactivate()}
-              style={styles.buttonTouchable}>
-              <Text style={styles.buttonText}>SCAN</Text>
-            </TouchableOpacity>
-          }
-        />
+        {isReady ? (
+          <QRCodeScanner
+            ref={scannerRef}
+            showMarker
+            style={{flex: 1}}
+            bottomContent={
+              <TouchableOpacity
+                onPress={() => scannerRef.current.reactivate()}
+                style={styles.buttonTouchable}>
+                <Text style={styles.buttonText}>SCAN</Text>
+              </TouchableOpacity>
+            }
+          />
+        ) : (
+          <View
+            style={{
+              flex: 1,
+              flexDirection: 'column',
+              justifyContent: 'center',
+              alignItems: 'center',
+            }}>
+            <Text style={{fontSize: 25, fontWeight: 'bold'}}>Loading...</Text>
+          </View>
+        )}
       </View>
     );
   };
