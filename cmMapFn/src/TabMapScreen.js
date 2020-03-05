@@ -31,19 +31,19 @@ const TabMapScreen = () => {
     longitudeDelta: LONGITUDE_DELTA,
   });
 
-
   useEffect(() => {
-    // loadMarkers();
+    loadMarkers();
   }, []);
 
   async function loadMarkers() {
-    let result = await Axios.get('http://192.168.0.107:5000/position');
+    let result = await Axios.get('http://192.168.0.109:3000/position');
 
-    let tmpMarkers = [];
-    result.data.forEach(coordinate => {
-      tmpMarkers = [...tmpMarkers, {coordinate, key: coordinate.id}];
+    let tmp = [];
+    result.data.forEach(item => {
+      tmp = [...tmp, {coordinate: item, key: tmp.length.toString()}];
     });
-    setMarkers(tmpMarkers);
+
+    setMarkers(tmp);
   }
 
   const addMarker = async coordinate => {
