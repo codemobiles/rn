@@ -9,9 +9,9 @@ const ScannerScreen = props => {
   const [isReady, setIsReady] = useState(false);
   useEffect(() => {
     setTimeout(() => {
-      // setIsReady(true);
-      onSuccess('www.codemobiles.com');
-    }, 3000);
+      setIsReady(true);
+      // onSuccess('www.codemobiles.com');
+    }, 300);
   }, []);
 
   const onSuccess = result => {
@@ -27,6 +27,7 @@ const ScannerScreen = props => {
           <QRCodeScanner
             ref={scannerRef}
             showMarker
+            onRead={e => onSuccess(e.data)}
             style={{flex: 1}}
             bottomContent={
               <TouchableOpacity
