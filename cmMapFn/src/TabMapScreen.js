@@ -43,8 +43,8 @@ const TabMapScreen = () => {
         style={styles.map}
         mapType="standard" // NORMAL, SATELLITE, HYBRID
       >
-        {markers.map(marker => (
-          <Marker key={marker.key} coordinate={marker.coordinate}>
+        {markers.map(({coordinate, key}) => (
+          <Marker key={key} coordinate={coordinate}>
             <View
               style={{
                 flexDirection: 'column',
