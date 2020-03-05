@@ -33,6 +33,12 @@ const TabMapScreen = () => {
 
   const addMarker = coordinate => {
     setMarkers([...markers, {coordinate, key: markers.length.toString()}]);
+
+    let result = await Axios.post(
+      'http://192.168.0.107:3000/record_position',
+      coordinate,
+    );
+    console.log(JSON.stringify(result));
   };
 
   return (
