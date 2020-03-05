@@ -50,3 +50,6 @@ yarn start --reset-cache; (for starting the bundler)
   pod 'glog', :podspec => '../node_modules/react-native/third-party-podspecs/glog.podspec', :modular_headers => false
   pod 'Folly', :podspec => '../node_modules/react-native/third-party-podspecs/Folly.podspec', :modular_headers => false
   pod 'Permission-Camera', :path => "../node_modules/react-native-permissions/ios/Camera.podspec"
+
+
+adb shell input keyevent 82
