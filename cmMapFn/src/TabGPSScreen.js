@@ -38,18 +38,6 @@ const TabGPSScreen = () => {
     }),
   );
 
-  useEffect(() => {
-    if (Platform.OS == 'android') {
-      requestLocationPermission();
-    } else {
-      startLocationTracking();
-    }
-    return () => {
-      console.log('Unmounted', JSON.stringify(watchId));
-      navigator && navigator.geolocation.clearWatch(watchId);
-    };
-  }, []);
-
   function startLocationTracking() {
     navigator.geolocation = require('@react-native-community/geolocation');
     watchId = navigator.geolocation.watchPosition(
@@ -122,20 +110,7 @@ const TabGPSScreen = () => {
           ...position,
           latitudeDelta: LATITUDE_DELTA,
           longitudeDelta: LONGITUDE_DELTA,
-        }}>
-        <Marker.Animated coordinate={coordinate}>
-          <Image
-            source={require('./assets/img/logo.png')}
-            style={{
-              height: 60,
-              width: 60,
-              borderColor: 'white',
-              borderRadius: 20,
-              borderWidth: 2,
-            }}
-          />
-        </Marker.Animated>
-      </MapView>
+        }}></MapView>
       <View style={styles.buttonContainer}>
         <TouchableOpacity style={[styles.bubble, styles.button]}>
           <Text style={styles.bottomBarContent}>
@@ -145,11 +120,6 @@ const TabGPSScreen = () => {
         </TouchableOpacity>
       </View>
 
-      <SegmentedControlTab
-        selectedIndex={selectedIndex}
-        values={['Standard', 'Sattile', 'Hybrid']}
-        onTabPress={index => changeMapType(index)}
-      />
       <Image
         resizeMode="contain"
         style={{
