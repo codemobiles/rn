@@ -50,7 +50,8 @@ const TabGPSScreen = () => {
     };
   }, []);
 
-  function startLocationTracking() {
+
+  const startLocationTracking = () => {
     navigator.geolocation = require('@react-native-community/geolocation');
 
     watchId = navigator.geolocation.watchPosition(
@@ -87,7 +88,7 @@ const TabGPSScreen = () => {
       },
     );
     */
-  }
+  };
 
   async function requestLocationPermission() {
     const checkLocationPermission = PermissionsAndroid.check(
@@ -164,6 +165,12 @@ const TabGPSScreen = () => {
           </Text>
         </TouchableOpacity>
       </View>
+
+      <SegmentedControlTab
+        selectedIndex={selectedIndex}
+        values={['Standard', 'Sattile', 'Hybrid']}
+        onTabPress={index => changeMapType(index)}
+      />
 
       <Image
         resizeMode="contain"
