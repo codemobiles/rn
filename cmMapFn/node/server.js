@@ -4,7 +4,7 @@ const bodyParser = require('body-parser');
 const position = require('./model_position');
 
 // http://localhost:3000/record_position
-// {"lat": "123", "lng": "5555"}
+// {"latitude": 123, "longitude": 6666}
 app.use(bodyParser.json());
 
 app.post('/record_position', async (req, res) => {
