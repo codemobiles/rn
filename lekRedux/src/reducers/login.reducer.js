@@ -1,4 +1,9 @@
-import {LOGIN_FETCHING, LOGIN_FAILED, LOGIN_SUCCESS} from '../constants';
+import {
+  LOGIN_FETCHING,
+  LOGIN_FAILED,
+  LOGIN_SUCCESS,
+  LOGOUT,
+} from '../constants';
 
 const initialState = {
   isFetching: false,
@@ -14,6 +19,8 @@ export default (state = initialState, {type, payload}) => {
       return {...state, isFetching: false, isError: true, result: payload};
     case LOGIN_SUCCESS:
       return {...state, isFetching: false, isError: false, result: payload};
+    case LOGOUT:
+      return initialState;
     default:
       return state;
   }
