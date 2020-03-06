@@ -1,4 +1,5 @@
 import {LOGIN_FETCHING, LOGIN_FAILED, LOGIN_SUCCESS} from '../constants';
+import AsyncStorage from '@react-native-community/async-storage';
 
 export const setStateToFetching = () => ({
   type: LOGIN_FETCHING,
