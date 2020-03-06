@@ -1,12 +1,7 @@
-import {LOGIN_FETCHING, LOGIN_SUCCESS, LOGIN_FAILED} from '../constants';
+import {LOGIN_FETCHING, LOGIN_FAILED, LOGIN_SUCCESS} from '../constants';
 
 export const setStateToFetching = () => ({
   type: LOGIN_FETCHING,
-});
-
-export const setStateToSuccess = payload => ({
-  type: LOGIN_SUCCESS,
-  payload,
 });
 
 export const setStateToFailed = payload => ({
@@ -14,8 +9,7 @@ export const setStateToFailed = payload => ({
   payload,
 });
 
-export const login = value => {
-  return dispatch => {
-      
-  };
-};
+export const setStateToSuccess = payload => ({
+  type: LOGIN_SUCCESS,
+  payload,
+});
