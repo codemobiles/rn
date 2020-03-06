@@ -24,8 +24,8 @@ const jsonTabOp = {
       resizeMode="contain"
       source={
         focused
-          ? require('./assets/img/ic_profile_select.png')
-          : require('./assets/img/ic_profile.png')
+          ? require('./assets/img/ic_feed_select.png')
+          : require('./assets/img/ic_feed.png')
       }
     />
   ),
@@ -49,6 +49,25 @@ const cameraTabOp = {
   ),
 };
 
+const profileTabOp = {
+  // tabBarOptions: {activeTintColor: 'red'},
+  tabBarLabel: 'Feed',
+  tabBarIcon: ({focused}) => (
+    <Image
+      style={{
+        height: 28,
+        width: 28,
+      }}
+      resizeMode="contain"
+      source={
+        focused
+          ? require('./assets/img/ic_profile_select.png')
+          : require('./assets/img/ic_profile.png')
+      }
+    />
+  ),
+};
+
 const AuthenStack = createStackNavigator(
   {
     home: {screen: HomeScreen},
@@ -63,7 +82,7 @@ const TabScreens = createBottomTabNavigator(
   {
     json: {screen: JSONFeedScreen, navigationOptions: jsonTabOp},
     camera: {screen: CameraScreen, navigationOptions: cameraTabOp},
-    profile: {screen: ProfileScreen, navigationOptions: jsonTabOp},
+    profile: {screen: ProfileScreen, navigationOptions: profileTabOp},
   },
   {
     initialRouteName: 'json',

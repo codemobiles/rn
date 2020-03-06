@@ -38,7 +38,9 @@ const ProfileScreen = props => {
           }}
         />
         <View style={{margin: 16, alignSelf: 'center'}}>
-          {!isError && result && <Text>{JSON.stringify(result)}</Text>}
+          {!isError && result && (
+            <Text style={{color: 'white'}}>{JSON.stringify(result)}</Text>
+          )}
         </View>
         <Button
           onPress={() => dispatch(loginActions.logout(props))}

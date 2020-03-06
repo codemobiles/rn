@@ -33,6 +33,7 @@ export const login = ({username, password, navigation}) => {
     } else {
       dispatch(setStateToFailed('Error, invalid account'));
     }
+    
   };
 };
 
