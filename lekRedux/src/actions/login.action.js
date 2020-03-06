@@ -1,4 +1,9 @@
-import {LOGIN_FETCHING, LOGIN_FAILED, LOGIN_SUCCESS} from '../constants';
+import {
+  LOGIN_FETCHING,
+  LOGIN_FAILED,
+  LOGIN_SUCCESS,
+  LOGOUT,
+} from '../constants';
 import AsyncStorage from '@react-native-community/async-storage';
 
 export const setStateToFetching = () => ({
@@ -28,5 +33,13 @@ export const login = ({username, password, navigation}) => {
     } else {
       dispatch(setStateToFailed('Error, invalid account'));
     }
+  };
+};
+
+export const logout = ({navigation}) => {
+  return async dispatch => {
+    await AsyncStorage.removeItem('already_logged_in');
+    dispatch({type: LOGOUT});
+    navigation.navigate('AuthenScene');
   };
 };

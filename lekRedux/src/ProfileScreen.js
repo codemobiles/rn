@@ -2,6 +2,7 @@ import React from 'react';
 import {View, Text, ImageBackground, Image} from 'react-native';
 import {useSelector, useDispatch} from 'react-redux';
 import {Avatar, Button} from 'react-native-elements';
+import {login} from './actions/login.action';
 
 const ProfileScreen = props => {
   const loginReducer = useSelector(({loginReducer}) => loginReducer);
@@ -11,7 +12,7 @@ const ProfileScreen = props => {
   return (
     <ImageBackground
       source={require('./assets/img/bg.png')}
-      style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
+      style={{flex: 1, justifyContent: 'center'}}>
       <Image
         source={require('./assets/img/header_react_native.png')}
         resizeMode="contain"
@@ -20,6 +21,7 @@ const ProfileScreen = props => {
       <View
         style={{
           justifyContent: 'center',
+          alignItems: 'stretch',
           backgroundColor: '#FFF3',
           marginTop: 32,
           marginLeft: 32,
@@ -37,7 +39,7 @@ const ProfileScreen = props => {
           }}
         />
         <View style={{margin: 16, alignSelf: 'center'}}>
-          {/* {!isError && result && <Text>{JSON.stringify(result)}</Text>} */}
+          {!loginReducer.isError && <Text>{loginReducer.result.username}</Text>}
         </View>
         <Button
           // onPress={() => dispatch(loginActions.logout(props))}
