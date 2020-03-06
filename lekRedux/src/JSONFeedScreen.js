@@ -85,10 +85,10 @@ const JSONFeedScreen = props => {
       style={styles.container}
       source={require('./assets/img/bg.png')}>
       <FlatList
-        refreshing={isFetching}
+        refreshing={jsonReducer.isFetching}
         ListHeaderComponent={renderHeader}
         onRefresh={() => loadData()}
-        data={dataArray ? dataArray : []}
+        data={jsonReducer.result ? jsonReducer.result : []}
         renderItem={({item, index}) =>
           renderRow({item, index, navigation: props.navigation})
         }
