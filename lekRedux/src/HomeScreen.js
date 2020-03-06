@@ -19,6 +19,7 @@ import {Button as ElButton} from 'react-native-elements';
 const HomeScreen = props => {
   const [account, setAccount] = useState({username: '', password: ''});
   const dispatch = useDispatch();
+  const loginReducer = useSelector(({loginReducer}) => loginReducer);
 
   const checkLogin = async () => {
     let _already_logged_in = await AsyncStorage.getItem('already_logged_in');
@@ -34,6 +35,7 @@ const HomeScreen = props => {
   }, []);
 
   const submit = async () => {
+    console.log('Login');
     dispatch(loginActions.login({...account, ...props}));
     /*
     let _regUsername = await AsyncStorage.getItem('username');
@@ -86,6 +88,7 @@ const HomeScreen = props => {
           />
         </View>
 
+          
         <View style={{marginTop: 32}}>
           <Button title="Login" onPress={submit} />
         </View>
