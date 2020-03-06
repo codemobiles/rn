@@ -2,8 +2,7 @@ import React from 'react';
 import {View, Text, ImageBackground, Image} from 'react-native';
 import {useSelector, useDispatch} from 'react-redux';
 import {Avatar, Button} from 'react-native-elements';
-import {login} from './actions/login.action';
-
+import  * as loginActions from "./actions/login.action";
 const ProfileScreen = props => {
   const loginReducer = useSelector(({loginReducer}) => loginReducer);
   const dispatch = useDispatch();
