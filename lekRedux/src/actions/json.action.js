@@ -1,21 +1,24 @@
-import { FEED_FETCHING, FEED_FAILED, FEED_SUCCESS } from "../constants";
+import {FEED_FETCHING, FEED_FAILED, FEED_SUCCESS} from '../constants';
 
 export const setStateToFetching = () => ({
-    type: FEED_FETCHING,    
-})
+  type: FEED_FETCHING,
+});
 
-export const setStateToFailed = (payload) => ({
-    type: FEED_FAILED,
-    payload
-})
+export const setStateToFailed = payload => ({
+  type: FEED_FAILED,
+  payload,
+});
 
-export const setStateToSuccess = (payload) => ({
-    type: FEED_SUCCESS,
-    payload
-})
+export const setStateToSuccess = payload => ({
+  type: FEED_SUCCESS,
+  payload,
+});
 
-export const feed = ()=>{
-    return dispatch=>{
-        
-    }
-}
+export const feed = () => {
+  return dispatch => {
+    dispatch(setStateToFetching());
+    setTimeout(() => {
+      dispatch(setStateToSuccess([1, 2, 3, 4]));
+    }, 1000);
+  };
+};
