@@ -1,3 +1,6 @@
+npm i redux react-redux redux-logger redux-thunk
+
+
 * add / remove : re-turn npm start is required
 1. create src and assets folders
 2. copy images from original project
