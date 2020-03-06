@@ -11,6 +11,8 @@ import {
 import axios from 'axios';
 import AsyncStorage from '@react-native-community/async-storage';
 import {ifIphoneX} from 'react-native-iphone-x-helper';
+import {useDispatch, useSelector} from 'react-redux';
+import * as jsonActions from './actions/json.action';
 
 const renderRow = ({item, index, navigation}) => (
   <TouchableOpacity
@@ -70,7 +72,11 @@ const JSONFeedScreen = props => {
     }, 1000);
   };
 
+  const dispatch = useDispatch();
+  const jsonReducer = useSelector(({jsonReducer}) => jsonReducer);
+
   useEffect(() => {
+    dispatch(jsonActions.feed());
     loadData();
   }, []);
 
