@@ -49,35 +49,12 @@ renderHeader = () => (
 );
 
 const JSONFeedScreen = props => {
-  const [dataArray, setDataArray] = useState(null);
-  const [isFetching, setIsFetching] = useState(false);
-
-  const loadData = async () => {
-    setIsFetching(true);
-    console.log('JSON Created');
-
-    let url = 'http://codemobiles.com/adhoc/youtubes/index_new.php';
-    let regUsername = 'admin'; // await AsyncStorage.getItem('username')
-    let regPassword = 'password'; // await AsyncStorage.getItem('password')
-    let data = `username=${regUsername}&password=${regPassword}&type=foods`;
-
-    let result = await axios.post(url, data);
-
-    // Destructuring
-    const {youtubes} = result.data;
-    setDataArray(youtubes);
-
-    setTimeout(() => {
-      setIsFetching(false);
-    }, 1000);
-  };
-
   const dispatch = useDispatch();
   const jsonReducer = useSelector(({jsonReducer}) => jsonReducer);
+  const loginReducer = useSelector(({loginReducer}) => loginReducer);
 
   useEffect(() => {
     dispatch(jsonActions.feed());
-    loadData();
   }, []);
 
   return (
@@ -87,7 +64,7 @@ const JSONFeedScreen = props => {
       <FlatList
         refreshing={jsonReducer.isFetching}
         ListHeaderComponent={renderHeader}
-        onRefresh={() => loadData()}
+        onRefresh={() => dispatch(jsonActions.feed())}
         data={jsonReducer.result ? jsonReducer.result : []}
         renderItem={({item, index}) =>
           renderRow({item, index, navigation: props.navigation})
