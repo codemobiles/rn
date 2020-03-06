@@ -14,3 +14,8 @@ export const setStateToSuccess = (payload) => ({
     payload
 })
 
+export const feed = ()=>{
+    return dispatch=>{
+        
+    }
+}
