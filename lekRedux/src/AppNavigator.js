@@ -10,6 +10,8 @@ import RegisterScreen from './RegisterScreen';
 import JSONFeedScreen from './JSONFeedScreen';
 import CameraScreen from './CameraScreen';
 import YoutubeScreen from './YoutubeScreen';
+import ProfileScreen from './ProfileScreen';
+
 import AsyncStorage from '@react-native-community/async-storage';
 
 const jsonTabOp = {
@@ -63,6 +65,7 @@ const TabScreens = createBottomTabNavigator(
   {
     json: {screen: JSONFeedScreen, navigationOptions: jsonTabOp},
     camera: {screen: CameraScreen, navigationOptions: cameraTabOp},
+    profile: {screen: ProfileScreen, navigationOptions: jsonTabOp},
   },
   {
     initialRouteName: 'json',
