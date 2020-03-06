@@ -88,7 +88,7 @@ const HomeScreen = props => {
           />
         </View>
 
-          
+        {loginReducer.isFetching && <Text>Connecting...</Text>}
         <View style={{marginTop: 32}}>
           <Button title="Login" onPress={submit} />
         </View>
