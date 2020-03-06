@@ -2,7 +2,7 @@ import React from 'react';
 import {View, Text, ImageBackground, Image} from 'react-native';
 import {useSelector, useDispatch} from 'react-redux';
 import {Avatar, Button} from 'react-native-elements';
-import  * as loginActions from "./actions/login.action";
+import * as loginActions from './actions/login.action';
 const ProfileScreen = props => {
   const loginReducer = useSelector(({loginReducer}) => loginReducer);
   const dispatch = useDispatch();
@@ -38,10 +38,12 @@ const ProfileScreen = props => {
           }}
         />
         <View style={{margin: 16, alignSelf: 'center'}}>
-          {!loginReducer.isError && <Text>{loginReducer.result.username}</Text>}
+          {!loginReducer.isError && loginReducer.result && (
+            <Text>{loginReducer.result.username}</Text>
+          )}
         </View>
         <Button
-          // onPress={() => dispatch(loginActions.logout(props))}
+          onPress={() => dispatch(loginActions.logout(props))}
           type="solid"
           title="Logout"
         />
