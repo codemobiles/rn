@@ -14,4 +14,12 @@ import thunk from 'redux-thunk';
 import reducers from './src/reducers';
 // Redux End
 
-AppRegistry.registerComponent(appName, () => App);
+const store = createStore(reducers, applyMiddleware(logger, thunk));
+
+const ReduxApp = ()=> (
+  <Provider store={store}>
+    <App />
+  </Provider>
+);
+
+AppRegistry.registerComponent(appName, () => ReduxApp);

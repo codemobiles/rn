@@ -11,14 +11,14 @@ import {
 } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import {Input, Divider, Badge} from 'react-native-elements';
-
+import {useDispatch, useSelector} from 'react-redux';
 import AsyncStorage from '@react-native-community/async-storage';
-
+import * as loginActions from './actions/login.action';
 import {Button as ElButton} from 'react-native-elements';
 
 const HomeScreen = props => {
   const [account, setAccount] = useState({username: '', password: ''});
-  
+  const dispatch = useDispatch();
 
   const checkLogin = async () => {
     let _already_logged_in = await AsyncStorage.getItem('already_logged_in');
@@ -34,6 +34,8 @@ const HomeScreen = props => {
   }, []);
 
   const submit = async () => {
+    dispatch(loginActions.login({...account, ...props}));
+    /*
     let _regUsername = await AsyncStorage.getItem('username');
     let _regPassword = await AsyncStorage.getItem('password');
     const {username, password} = account;
@@ -43,6 +45,7 @@ const HomeScreen = props => {
     } else {
       alert('Authentication failed!');
     }
+    */
   };
 
   return (
