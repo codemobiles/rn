@@ -1,3 +1,7 @@
+npm i redux react-redux redux-logger redux-thunk
+
+
+
 * add / remove : re-turn npm start is required
 1. create src and assets folders
 2. copy images from original project
@@ -29,6 +33,7 @@ react-native run-android --port=1234
     react-native link react-native-safe-area-context
     react-native link @react-native-community/masked-view      
     react-native link @react-native-community/async-storage    
+    react-native link react-native-permissions
 
     ยังเพิ่งลงชุดนี้
     npm i react-native-youtube react-native-image-crop-picker 

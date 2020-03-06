@@ -1,8 +1,8 @@
 platform :ios, '9.0'
 require_relative '../node_modules/@react-native-community/cli-platform-ios/native_modules'
 
-target 'cmReduxAuthenFn' do
-  # Pods for cmReduxAuthenFn
+target 'cmAuthenFn' do
+  # Pods for cmAuthenFn
   pod 'FBLazyVector', :path => "../node_modules/react-native/Libraries/FBLazyVector"
   pod 'FBReactNativeSpec', :path => "../node_modules/react-native/Libraries/FBReactNativeSpec"
   pod 'RCTRequired', :path => "../node_modules/react-native/Libraries/RCTRequired"
@@ -36,7 +36,23 @@ target 'cmReduxAuthenFn' do
 
   pod 'RNVectorIcons', :path => '../node_modules/react-native-vector-icons'
 
-  target 'cmReduxAuthenFnTests' do
+  pod 'RNGestureHandler', :path => '../node_modules/react-native-gesture-handler'
+
+  pod 'RNReanimated', :path => '../node_modules/react-native-reanimated'
+
+  pod 'RNCAsyncStorage', :path => '../node_modules/@react-native-community/async-storage'
+
+  pod 'RNScreens', :path => '../node_modules/react-native-screens'
+
+  pod 'react-native-safe-area-context', :path => '../node_modules/react-native-safe-area-context'
+
+  pod 'RNCMaskedView', :path => '../node_modules/@react-native-community/masked-view'
+
+  pod 'RCTYouTube', :path => '../node_modules/react-native-youtube'
+
+  pod 'RNImageCropPicker', :path => '../node_modules/react-native-image-crop-picker'
+
+  target 'cmAuthenFnTests' do
     inherit! :search_paths
     # Pods for testing
   end
@@ -44,10 +60,10 @@ target 'cmReduxAuthenFn' do
   use_native_modules!
 end
 
-target 'cmReduxAuthenFn-tvOS' do
-  # Pods for cmReduxAuthenFn-tvOS
+target 'cmAuthenFn-tvOS' do
+  # Pods for cmAuthenFn-tvOS
 
-  target 'cmReduxAuthenFn-tvOSTests' do
+  target 'cmAuthenFn-tvOSTests' do
     inherit! :search_paths
     # Pods for testing
   end
