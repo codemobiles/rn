@@ -18,6 +18,7 @@ import {Button as ElButton} from 'react-native-elements';
 
 const HomeScreen = props => {
   const [account, setAccount] = useState({username: '', password: ''});
+  
 
   const checkLogin = async () => {
     let _already_logged_in = await AsyncStorage.getItem('already_logged_in');
