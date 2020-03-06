@@ -50,6 +50,10 @@ target 'cmQRFn' do
 
   pod 'react-native-camera', :path => '../node_modules/react-native-camera'
 
+  pod 'glog', :podspec => '../node_modules/react-native/third-party-podspecs/glog.podspec', :modular_headers => false
+  pod 'Folly', :podspec => '../node_modules/react-native/third-party-podspecs/Folly.podspec', :modular_headers => false
+  pod 'Permission-Camera', :path => "../node_modules/react-native-permissions/ios/Camera.podspec"
+
   target 'cmQRFnTests' do
     inherit! :search_paths
     # Pods for testing

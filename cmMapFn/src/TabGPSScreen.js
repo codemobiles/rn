@@ -48,7 +48,6 @@ const TabGPSScreen = () => {
     return () => {
       // clean up
       navigator && navigator.geolocation.clearWatch(watchId);
-
     };
   }, []);
 
@@ -71,24 +70,6 @@ const TabGPSScreen = () => {
         maximumAge: 1000,
       },
     );
-
-    /*
-    watchId = navigator.geolocation.watchPosition(
-      position => {
-        console.log(JSON.stringify(position));
-        coordinate.timing(position.coords).start(); // the coordinate is made from AnimatedRegion
-        setPosition(position.coords); // const {latitude, longitude} = position.coords;
-      },
-      error => {
-        console.log(JSON.stringify(error));
-      },
-      {
-        enableHighAccuracy: true,
-        maximumAge: 500,
-        timeout: 5000,
-      },
-    );
-    */
   };
 
   async function requestLocationPermission() {
@@ -139,8 +120,6 @@ const TabGPSScreen = () => {
         showsMyLocationButton
         loadingEnabled
         region={{
-          // latitude: latitude,
-          // longitude: longitude,
           ...position,
           latitudeDelta: LATITUDE_DELTA,
           longitudeDelta: LONGITUDE_DELTA,
