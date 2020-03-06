@@ -54,6 +54,7 @@ const JSONFeedScreen = props => {
   const loginReducer = useSelector(({loginReducer}) => loginReducer);
 
   useEffect(() => {
+    debugger
     dispatch(jsonActions.feed());
   }, []);
 

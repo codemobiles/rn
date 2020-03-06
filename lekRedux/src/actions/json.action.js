@@ -31,7 +31,7 @@ const doFeed = async (dispatch) => {
   let data = `username=${regUsername}&password=${regPassword}&type=foods`;
 
   let result = await axios.post(url, data);
-
+  debugger
   // Destructuring
   const {youtubes} = result.data;
   dispatch(setStateToSuccess(youtubes));
